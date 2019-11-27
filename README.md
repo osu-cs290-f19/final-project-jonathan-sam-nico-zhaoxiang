@@ -11,3 +11,5 @@ TODO: Movement.
 TODO: Astroid generation.
 
 TODO: Astroid collision with player and/or bullets.
+
+IDEA: Im thinking of adding a drop-down thing on each page to change the color to light-mode or dark-mode, i can add the dropdown and ids if the person doing javascript can handle the event. - Jonathan
