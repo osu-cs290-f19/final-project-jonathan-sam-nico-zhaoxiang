@@ -1,13 +1,42 @@
 Asteroids
 
-A game by Nico Orint, Samuel Lewis, Johnathan Macias
+A game by Nico Orint, Samuel Lewis, and Johnathan Macias
 
-TODO: Astroid collision with player and/or bullets.
+===========================================================
+---	TODO	---
 
-TODO: Wrap around
+GAME:
+	-Asteroid collision with player and/or bullets.
 
-TODO: Wrap around with buffer on the sides to hide teleports
+	-Wrap around
 
-TODO: Size Canvas with CSS or Html to avoid frame updates
+	-Wrap around with buffer on the sides to hide teleports
 
-IDEA: Im thinking of adding a drop-down thing on each page to change the color to light-mode or dark-mode, i can add the dropdown and ids if the person doing javascript can handle the event. - Jonathan
+	-Size Canvas with CSS or Html to avoid frame updates
+	
+	-Space Station
+
+ART:
+	-Asteroids
+
+	-Ship thrust (forward, sides, backward)
+
+	-Space station
+
+HTML:
+	-Modify files to work with the stylesheet
+
+
+CSS:
+	-Dark Mode
+
+	-Light Mode
+
+Server:
+	-Track High Scores
+
+	-Get + store reviews
+
+	-Track total plays
+	
+	-Update gamestate of game objects
