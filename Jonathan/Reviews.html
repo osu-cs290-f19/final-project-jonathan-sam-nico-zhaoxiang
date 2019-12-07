@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Asteroids</title>
+</head>
+<body>
+    <header>
+        <div class="site-img-container">
+            <img src="#" alt="game-logo" />
+        </div>
+        <h1 class="site-title"><a href="#">Asteroids</a></h1>
+    </header>
+
+    <div class="upper-portion">
+        <div class="color-mode-container top-right">
+            <label for="color-mode">Mode</label>
+            <div class="filter-input-element">
+                <select id="color-mode" name="color-chooser">
+                    <option selected value="">Light Mode</option>
+                    <option>Dark Mode</option>
+                    <option>OSU Themed</option>
+                </select>
+            </div>
+        </div>
+        <div class="main-links-container" id="main-links-container">
+            <div class="main-links left-side" id="main-links">
+                <a href="#">Leave a Review</a>
+            </div>
+            <div class="main-links">
+                <a href="#">How to Play</a>
+            </div>
+            <div class="main-links">
+                <a href="#">High Scores</a>
+            </div>
+        </div>
+        <div class="ad-container top-mid">
+            <img src="ad.jpg">
+        </div>
+        <section id="reviews">
+            <h2 class="review-title">
+                Reviews
+            </h2>
+            <div class="review" data-rating="5"  data-recommend="I would recommend!">
+                <div class="review-contents">
+                    <div class="review-info-container">
+                        <a href="#" class="reviewer-name">Jonathan</a><span class="review-reccomend"> I would recommend!</span><span class="review-rating">5</span>
+                        <p class="review-description">Description to talk about the game and if it is good or not</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review" data-rating="5" data-fun="Extremely Fun" data-recommend="I would recommend!">
+                <div class="review-contents">
+                    <div class="review-info-container">
+                        <a href="#" class="reviewer-name">Jonathan</a><span class="review-reccomend"> I would recommend!</span><span class="review-rating">5</span>
+                        <p class="review-description">Description to talk about the game and if it is good or not</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="review-modal" class="hidden">
+        <div class="modal-header">
+            <h3>Review our Game!</h3>
+            <button type="button" id="modal-close" class="modal-hide-button">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="review-input-element">
+                <fieldset id="rating-input-fieldset" class="review-fieldset">
+                    <legend>Rate this Game (1-5):</legend>
+                    <div>
+                        <input type="radio" name="review-rating-input" id="review-rating-1" value="1">
+                        <label for="review-rating-1">1</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="review-rating-input" id="review-rating-2" value="2">
+                        <label for="review-rating-2">2</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="review-rating-input" id="review-rating-3" value="3">
+                        <label for="review-rating-3" ">3</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="review-rating-input" id="review-rating-4" value="4">
+                        <label for="review-rating-4">4</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="review-rating-input" id="review-rating-5" value="5">
+                        <label for="review-rating-5">5</label>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="review-input-element">
+                <label for="reviewer-name-input">Reviewer Name:</label>
+                <input type="text" id="reviewer-name-input">
+            </div>
+            <div class="review-input-element">
+                <label for="discription-input">Description:</label>
+                <input type="text" id="description-input">
+            </div>
+            <div class="review-input-element">
+                <fieldset id="Reccomend-input-fieldset" class="review-fieldset">
+                    <legend>Would you recommend this game to a friend:</legend>
+                    <div>
+                        <input type="radio" name="review-recommend-input" id="review-rating-would" value="would">
+                        <label for="review-rating-would">I would reccomend this game</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="review-recommend-input" id="review-rating-would-not" value="would-not">
+                        <label for="review-rating-would-not">I would not reccomend this game</label>
+                    </div>
+                </fieldset>
+            </div>
+            <div id="add-review-button-container">
+                <button type="button" id="add-review-button" >&times;</button>
+            </div>
+        </div>
+    </div>
+    <div class="lower-portion">
+        <div class="ad-container bottom-mid">
+            <img src="cholula-ad.jfif" />
+        </div>
+        <div class="half-size-for-bottom" id="bottom-links-container">
+            <div class="bottom-links-half-width">
+                <ul>
+                    <li>
+                        <a href="#"> Contact Us</a>
+                    </li>
+                    <li>
+                        <a href="#"> About Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="bottom-links-half-width">
+                <ul>
+                    <li>
+                        <a href="#"> Report Bugs</a>
+                    </li>
+                    <li>
+                        <a href="#"> Send PayPal</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="half-size-for-bottom">
+            <div class="advertisement-notice">
+                <h4 class="ad-free"><a href="#">Go Ad-Free!</a></h4>
+                <div class="ad-paragraph">
+                    <div class="ad-container">
+                        <img src="No-Ads.png" />
+                    </div>
+                    <p class="bd">
+                        Get more out of your asteroids experience. Take advantage of this cutting-edge technolofy by no longer limitting yourself to an experience littered with ads. Pay for the premium version of this website today!
+                        <a href="#">Learn more �</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
