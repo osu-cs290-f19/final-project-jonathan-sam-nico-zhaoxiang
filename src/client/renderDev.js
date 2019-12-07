@@ -7,9 +7,13 @@ var ctxUser = canvas.getContext("2d");
 
 
 TURN_SPEED = 2;
+USER_MAX_SPEED = 12;
+USER_ACC = 1;
+USER_SLOW = .1;
 
 BULLET_SPREAD = 11;
-BULLET_SPEED = 5;
+BULLET_SPEED = 7;
+BULLET_TIMER = 8;
 
 function spread(spread) {
   return Math.floor(Math.random() * spread) - spread/2;
@@ -18,23 +22,21 @@ function spread(spread) {
 window.addEventListener("keydown", keysPressed, false);
 window.addEventListener("keyup", keysReleased, false);
 
+var timer = 0
 var fire = false;
 function keysPressed(event) {
+  if (event.keyCode == 32) { fire = true; } 
   if (event.keyCode == 37) { user.ddeg = -TURN_SPEED; } // left
   if (event.keyCode == 39) { user.ddeg = TURN_SPEED; } // right
-  if (event.keyCode == 32 || fire) { 
-    fire = true;
-    newBullet(
-      user.x,
-      user.pointX(user.deg+spread(BULLET_SPREAD))/BULLET_SPEED,
-      user.y,
-      user.pointY(user.deg+spread(BULLET_SPREAD))/BULLET_SPEED)
-  } 
+  if (event.keyCode == 40) { user.dd = -USER_ACC; } // back
+  if (event.keyCode == 38) { user.dd = USER_ACC;} // forward
 }
 function keysReleased(event) {
   if (event.keyCode == 37) { user.ddeg = 0; } // left
   if (event.keyCode == 39) { user.ddeg = 0; } // right
-  if (event.keyCode == 32) { fire = false; } 
+  if (event.keyCode == 40) { user.dd = USER_SLOW; } // stop back
+  if (event.keyCode == 38) { user.dd = -USER_SLOW; } // stop forward
+  if (event.keyCode == 32) { fire = false; timer = 0; } 
 }
 function rad (num) {
   return num * Math.PI / 180;
@@ -46,7 +48,6 @@ function newBullet( ux, udx, uy, udy) {
     y : Math.round(uy),
     dy: udy,
   })
-
 }
 function drawAllBullets(context, bullets) {
   if (bullets.length != 0) {
@@ -73,9 +74,27 @@ function drawUser(context,user) {
   if (user.deg > 360) { user.deg = 0; }
   else if (user.deg < 0) { user.deg = 360; }
   context.save();
+////
+
+  if ( Math.abs(user.dd) == 1 || Math.abs(user.d) == USER_MAX_SPEED ) { user.thrust = user.deg; }
+  if ( user.dd == 1 && user.d > USER_MAX_SPEED) { user.dd = 0; user.d = USER_MAX_SPEED; }
+  else if ( user.dd == -1 && user.d < -USER_MAX_SPEED) { user.dd = 0; user.d = -USER_MAX_SPEED; }
+  else if (Math.abs(user.dd) == USER_SLOW && Math.abs(user.d) <= USER_SLOW) { user.dd = 0; user.d = 0; }
+  
+  if ( Math.abs(user.d + user.dd) <= USER_MAX_SPEED) { user.d += user.dd; }
+
+  user.x += user.pointX(user.thrust) / 200 * user.d;
+  user.y += user.pointY(user.thrust) / 200 * user.d;
+
+  if ( Math.abs(user.x) > (canvas.width/2) + 50 ) { user.x *= -1; }
+  if ( Math.abs(user.y) > (canvas.height/2) + 50 ) { user.y *= -1; }
+
   context.translate((canvas.width/2)+user.x,(canvas.height/2)+user.y);
+
+////
+  //console.log(user.delta, user.d, user.dd);
   user.deg += user.ddeg;
-  context.rotate(rad(user.deg));
+  context.rotate(rad(user.deg+90));
   context.drawImage(user.IMG,-25,-25,user.sizeX,user.sizeY);
   context.restore();
 }
@@ -87,10 +106,12 @@ function drawPoint(context, canvas, user, deg) {
     context.fillStyle = "#00FF00";
     context.fillRect(xc,yc,2,2);
 }
-function drawMiddle(context, canvas, user) {
+function drawMiddle(context, canvas, user, color) {
     var xc1 = (canvas.width/2) + user.x-1;
     var yc1 = (canvas.height/2)+ user.y-1;
     context.fillStyle = "#FFFFFF";
+    if ( color == "g") { context.fillStyle = "#00FF00"; }
+    else if ( color == "r") { context.fillStyle = "#FF0000";}
     context.fillRect(xc1,yc1,2,2);
 }
 function trig(len, deg) {
@@ -117,9 +138,10 @@ var user = {
 
   // position of the back left of the ship
   x : 0, 
-  dx: 0,
   y : 0,
-  dy: 0,
+  thrust: 0,
+  d: 0,
+  dd: 0,
 
   // 0 degrees rotation is facing right
   deg : 0,
@@ -157,19 +179,33 @@ var user = {
   }
   
 }
-user.IMG.src = 'Z:/CS/290/Final/public/assets/right-arrow.svg';
+user.IMG.src = '../../../public/assets/player.png';
 var bullets = [];
 
+var color = null;
 function render() {
   refreshScreen(ctxUser, canvas, window, wid, hei);
-
+  if ( fire ) {
+    if ( timer == BULLET_TIMER ) { timer = 0; }
+    if ( timer == 0 ) {
+      newBullet(
+        user.x,
+        user.pointX(Math.abs(user.deg+spread(BULLET_SPREAD)))/BULLET_SPEED,
+        user.y,
+        user.pointY(Math.abs(user.deg+spread(BULLET_SPREAD)))/BULLET_SPEED)
+    }
+    timer++;
+  }
   drawUser(ctxUser, user);
   drawAllBullets(ctxUser, bullets);
 
-  drawMiddle(ctxUser, canvas, user);
-  drawPoint(ctxUser, canvas, user, user.deg);
-  drawPoint(ctxUser, canvas, user, user.deg-135);
-  drawPoint(ctxUser, canvas, user, user.deg+135);
+  color = null;
+  if (Math.abs(user.dd) == USER_ACC) { color = "g"; }
+  if (Math.abs(user.dd) == USER_SLOW) { color = "r"; }
+  drawMiddle(ctxUser, canvas, user, color);
+  //drawPoint(ctxUser, canvas, user, user.deg);
+  //drawPoint(ctxUser, canvas, user, user.deg-135);
+  //drawPoint(ctxUser, canvas, user, user.deg+135);
 
   }
 renderInterval = setInterval(render, 1000 / 60);
