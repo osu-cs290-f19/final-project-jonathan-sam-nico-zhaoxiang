@@ -2,12 +2,16 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>Asteroids</title>
+    <link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/.jpg"
+          href="assets/web/951_gaspra.jpg" />
+    <title>Asteroids Reviews</title>
 </head>
 <body>
     <header>
         <div class="site-img-container">
-            <img src="#" alt="game-logo" />
+            <img src="assets/web/951_Gaspra.jpg" alt="game-logo" />
         </div>
         <h1 class="site-title"><a href="#">Asteroids</a></h1>
     </header>
@@ -28,31 +32,75 @@
             <a href="#" class="main-links">Instructions</a>
             <a href="#" class="main-links">High Score</a>
         </div>
-        <div class="ad-container top-mid">
-            <img src="ad.jpg">
-        </div>
-        <section id="middle-portion">
-            <h2 class="review-title">
-                Reviews
-            </h2>
-            <div class="review" data-rating="5" data-recommend="I would recommend!">
-                <div class="review-contents">
-                    <div class="review-info-container">
-                        <a href="#" class="reviewer-name">Jonathan</a><span class="review-reccomend"> I would recommend!</span><span class="review-rating">5</span>
-                        <p class="review-description">Description to talk about the game and if it is good or not</p>
-                    </div>
-                </div>
-            </div>
+    </div>
 
-            <div class="review" data-rating="5" data-fun="Extremely Fun" data-recommend="I would recommend!">
-                <div class="review-contents">
-                    <div class="review-info-container">
-                        <a href="#" class="reviewer-name">Jonathan</a><span class="review-reccomend"> I would recommend!</span><span class="review-rating">5</span>
-                        <p class="review-description">Description to talk about the game and if it is good or not</p>
-                    </div>
+    <div class="middle-portion">
+        <div class="ad-container top-mid">
+            <img src="assets/web/ad.jpg">
+        </div>
+        <h2 class="review-title">
+            Reviews
+        </h2>
+        <div class="review" data-rating="5" data-recommend="I would reccomend this game">
+            <div class="review-contents">
+                <div class="review-info-container">
+                    <a href="#" class="reviewer-name">Perfecchionist</a><span class="review-reccomend"> I would recommend!</span><span class="review-rating">Rating: 5</span>
+                    <p class="review-description">This game is the best thing that has ever happend to my life! Whoever developed this should get a good grade in a hypothetical assignment</p>
                 </div>
             </div>
-        </section>
+        </div>
+        <div class="review" data-rating="1" data-recommend="I would not reccomend this game">
+            <div class="review-contents">
+                <div class="review-info-container">
+                    <a href="#" class="reviewer-name">AnnoyingCritic996</a><div class="review-reccomend"> I would not reccomend this game</div><div class="review-rating">Rating: 2</div>
+                    <div class="review-description">This game has caused great turmoil in my life. I spent over 20 days playing the beta just last month, causing my wife to take the kids.</div>
+                </div>
+            </div>
+        </div>
+        <div class="review" data-rating="1" data-recommend="I would not reccomend this game">
+            <div class="review-contents">
+                <div class="review-info-container">
+                    <a href="#" class="reviewer-name">AnnoyingCritic996</a><div class="review-reccomend"> I would not reccomend this game</div><div class="review-rating">Rating: 2</div>
+                    <div class="review-description">This game has caused great turmoil in my life. I spent over 20 days playing the beta just last month, causing my wife to take the kids.</div>
+                </div>
+            </div>
+        </div>
+        <div class="review" data-rating="1" data-recommend="I would not reccomend this game">
+            <div class="review-contents">
+                <div class="review-info-container">
+                    <a href="#" class="reviewer-name">AnnoyingCritic996</a><div class="review-reccomend"> I would not reccomend this game</div><div class="review-rating">Rating: 2</div>
+                    <div class="review-description">This game has caused great turmoil in my life. I spent over 20 days playing the beta just last month, causing my wife to take the kids.</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="ad-container bottom-mid">
+            <img src="assets/web/cholula-ad.jfif" />
+        </div>
+    </div>
+ 
+    <div class="lower-portion">
+        <div class="links-and-ad-notice">
+            <div class="half-size-for-bottom" id="bottom-links-container">
+                <a href="#" class="bottom-links">Contact Us</a>
+                <a href="#" class="bottom-links">About Us</a>
+                <a href="#" class="bottom-links">Report Bugs</a>
+                <a href="#" class="bottom-links">Send PayPal</a>
+            </div>
+            <div class="ad-notice">
+                <a href="#" class="ad-free">Go Ad-Free!</a>
+                <div class="ad-paragraph">
+                    <div class="ad-notice-container">
+                        <img src="assets/web/No-Ads.png" />
+                    </div>
+                    <p class="bd small-text">
+                        Get more out of your asteroids experience. Take advantage of this cutting-edge technolofy by no longer limiting yourself to an experience littered with ads. Pay for the premium version of this website today!
+                        <a href="#">Learn more »</a>
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
     <div id="review-modal" class="hidden">
         <div class="modal-header">
@@ -73,7 +121,7 @@
                     </div>
                     <div>
                         <input type="radio" name="review-rating-input" id="review-rating-3" value="3">
-                        <label for="review-rating-3" ">3</label>
+                        <label for="review-rating-3">3</label>
                     </div>
                     <div>
                         <input type="radio" name="review-rating-input" id="review-rating-4" value="4">
@@ -111,29 +159,5 @@
             </div>
         </div>
     </div>
-    <div class="lower-portion">
-        <div class="links-and-ad-notice">
-            <div class="half-size-for-bottom" id="bottom-links-container">
-                <a href="#" class="bottom-links">Contact Us</a>
-                <a href="#" class="bottom-links">About Us</a>
-                <a href="#" class="bottom-links">Report Bugs</a>
-                <a href="#" class="bottom-links">Send PayPal</a>
-            </div>
-            <div class="ad-notice">
-                <a href="#" class="ad-free">Go Ad-Free!</a>
-                <div class="ad-paragraph">
-                    <div class="ad-notice-container">
-                        <img src="No-Ads.png" />
-                    </div>
-                    <p class="bd small-text">
-                        Get more out of your asteroids experience. Take advantage of this cutting-edge technolofy by no longer limiting yourself to an experience littered with ads. Pay for the premium version of this website today!
-                        <a href="#">Learn more »</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
 </body>
 </html>
