@@ -55,7 +55,7 @@ function newBullet( ux, udx, uy, udy) {
   })
 }
 rocksIMG = new Image();
-rocksIMG.src = '../../../public/assets/player.png';
+rocksIMG.src = '../../../public/assets/game/player.png';
 function newRock(user){
   var right = getRandomInt(2);
   var bottom = getRandomInt(2);
@@ -156,8 +156,8 @@ context.translate((canvas.width/2)+user.x,(canvas.height/2)+user.y);
   context.rotate(rad(user.deg+90));
   context.drawImage(user.IMG,-25,-25,user.sizeX,user.sizeY);
   if (Math.abs(user.dd) == 1) { thrustTimer = 0}
-  context.translate(0,10);
-  if (thrustTimer <= 5) {context.drawImage(user.IMG,-10,-10,20,20);}
+  context.translate(0,28);
+  if (thrustTimer <= 5) {context.drawImage(user.backThrustIMG,-20,-20,40,27);}
   thrustTimer++;
   context.restore();
 }
@@ -167,7 +167,7 @@ function refreshScreen(context, canvas, window, wid, hei) {
   if ( hei != window.innerHeight) { canvas.height = window.innerHeight-30; }
 
   context.clearRect(0, 0, canvas.width, canvas.height);
-  context.fillStyle = "#777777";
+  context.fillStyle = "black";
   context.fillRect(0, 0, canvas.width, canvas.height);
 }
 function trig(len, deg) {
@@ -176,6 +176,7 @@ function trig(len, deg) {
 var user = {
   // size of ship
   IMG : new Image(),
+  backThrustIMG : new Image(),
 
   sizeX : 50,
   sizeY : 50,
@@ -226,7 +227,8 @@ var user = {
   }
   
 }
-user.IMG.src = '../../../public/assets/player.png';
+user.IMG.src = '../../../public/assets/game/player.png';
+user.backThrustIMG.src = '../../../public/assets/game/main_thrust.png';
 var bullets = [];
 var rocks = [];
 function render() {
