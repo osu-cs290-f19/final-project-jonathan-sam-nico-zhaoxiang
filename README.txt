@@ -6,7 +6,7 @@ A game by Nico Orint, Samuel Lewis, and Johnathan Macias
 ---	TODO	---
 
 GAME:
-	-Asteroid collision with player and/or bullets.
+	-Asteroid collision with player
 
 	-Wrap around
 
@@ -14,23 +14,26 @@ GAME:
 
 	-Size Canvas with CSS or Html to avoid frame updates
 	
-	-Space Station
+	-Score Incremented with killed asteroids
+	
+	-Side thrusters
 
 ART:
-	-Asteroids
-
-	-Ship thrust (forward, sides, backward)
-
-	-Space station
+	-Space Station
 
 HTML:
-	-Modify files to work with the stylesheet
-
-
+	-Templatize everything
 CSS:
 	-Dark Mode
 
 	-Light Mode
+
+Clientside JS:
+	-Reviews
+
+	-High Scores
+
+	-Total Plays
 
 Server:
 	-Track High Scores
