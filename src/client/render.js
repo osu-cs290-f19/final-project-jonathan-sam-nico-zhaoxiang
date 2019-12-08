@@ -9,14 +9,14 @@ var ctxUser = canvas.getContext("2d");
 TURN_SPEED = 2;
 USER_MAX_SPEED = 12;
 USER_ACC = 1;
-USER_SLOW = .1;
+USER_SLOW = .08;
 MINI_THRUST_IMG = new Image();
 MINI_THRUST_IMG.src = '../public/assets/game/side_thrust.png';
 
 BULLET_IMG = new Image();
 BULLET_IMG.src = '../public/assets/game/bullet.png';
 BULLET_SPREAD = 11;
-BULLET_SPEED = 7;
+BULLET_SPEED = 5;
 BULLET_TIMER = 8;
 
 ROCK_SPEED = 20;
@@ -143,13 +143,21 @@ function drawRock(context, rock) {
   */
 }
 var thrustTimer = 11;
-function drawThrusters(context,user) {
-  x = user.x + Math.round(user.pointX(Math.abs((user.deg+30)%360))/3);
-  y = user.y + Math.round(user.pointY(Math.abs((user.deg+30)%360))/3);
-  
+var smallTimer = 11;
+function drawAllThrusters(context, user) {
+  if (user.ddeg != 0 || user.dd < 0) { smallTimer = 0}
+  if (smallTimer <= 5 && (user.ddeg < 0 || user.dd < 0)) {   drawThruster(context, user, user.deg+45); }
+  if (smallTimer <= 5 && (user.ddeg > 0 || user.dd < 0)) {   drawThruster(context, user, user.deg-45); }
+  smallTimer++;
+}
+function drawThruster(context,user, deg) {
+  if (deg < 0) { deg += 360; }
+  if (deg > 360) { deg -= 360; }
+  x = user.x + Math.round(user.pointX(Math.abs((deg)%360))/3);
+  y = user.y + Math.round(user.pointY(Math.abs((deg)%360))/3);
   context.save();
   context.translate((canvas.width/2)+x,(canvas.height/2)+y);
-  context.rotate(rad(user.deg+30));
+  context.rotate(rad(deg));
   context.drawImage(MINI_THRUST_IMG,-10,-5,20,10);
   context.restore();
 }
@@ -179,10 +187,13 @@ context.translate((canvas.width/2)+user.x,(canvas.height/2)+user.y);
   user.deg += user.ddeg;
   context.rotate(rad(user.deg+90));
   context.drawImage(user.IMG,-25,-25,user.sizeX,user.sizeY);
-  if (Math.abs(user.dd) == 1) { thrustTimer = 0}
+
+  if (Math.abs(user.dd) == 1 ) { thrustTimer = 0}
   context.translate(0,28);
-  if (thrustTimer <= 5) {context.drawImage(user.backThrustIMG,-20,-20,40,27);}
+  if (thrustTimer <= 5 && user.d > 0) {context.drawImage(user.backThrustIMG,-20,-20,40,27);}
   thrustTimer++;
+
+
   context.restore();
 }
 // This is really laggy when it is used
@@ -283,8 +294,8 @@ function render() {
   }
 
   drawUser(ctxUser, user);
-  drawThrusters(ctxUser, user);
   drawAllBullets(ctxUser, bullets);
+  drawAllThrusters(ctxUser, user);
   drawAllRocks(ctxUser, rocks, bullets);
 
   }
