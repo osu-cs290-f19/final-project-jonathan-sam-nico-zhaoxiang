@@ -6,18 +6,31 @@
  var controls = fs.readFileSync('/public/controls.html', 'utf-8');
 
  var style = fs.readFileSync('/public/style.css', 'utf-8');
- var javascript = fs.readFileSync('./public/index.js', 'utf-8');
- var error404 = fs.readFileSync('./public/404.html', 'utf-8');
+ var javascript = fs.readFileSync('/public/index.js', 'utf-8');/*
+ var error404 = fs.readFileSync('/public/404.html', 'utf-8');
  var benny = fs.readFileSync('./public/benny.jpg');
+ */
 
  const port = process.env.PORT||3000;
  //console.log('your port is ${port}');
 	//command line PORT=XXXXX node server js, XXXX is the port I want
  function requesthandler(req, res){
-	if(req.url == '/index.html' || req.url =='/'){
+	if(req.url == '/homepage.html' || req.url =='/'){
 		res.writeHead(200,{
 			'Content-Type':'text/html'});
-		res.write(index);
+		res.write(homepage);
+		res.end();
+	}
+	else if(req.url == '/index.js'){
+		res.writeHead(200,{
+			'Content-Type':'text/javascript'});
+		res.write(javascript);
+		res.end();
+	}
+	else if(req.url == '/controls.html'){
+		res.writeHead(200,{
+			'Content-Type':'text/javascript'});
+		res.write(javascript);
 		res.end();
 	}
 	else if(req.url == '/index.js'){
@@ -32,12 +45,15 @@
 		res.write(style);
 		res.end();
 	}
+
+	/*
 	else if(req.url == '/benny.jpg'){
 	res.writeHead(200,{
 		'Content-Type':'image/jpeg'});
 	res.write(benny);
 	res.end();
 	}
+	
 	else if(req.url == '/404.html'){
 	res.writeHead(200,{
 		'Content-Type':'text/html'});
@@ -49,7 +65,7 @@
 			'Content-Type':'text/html'});
 		res.write(error404);
 		res.end();
-	}
+	}*/
  };
 
 var server = http.createServer(requesthandler);

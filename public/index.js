@@ -1,18 +1,18 @@
 //console.log("modal-close ",document.getElementById('modal-close'));
-var close = document.getElementById("modal-close");
-close.addEventListener('click',modal_accept);
+var addbutton = document.getElementById('modal-close');
+addbutton.addEventListener('click',modal_accept);
 
 //document.getElementById("modal-close").addEventListener("click",modal_toggle);
 document.getElementById("review-modal").addEventListener("click",modal_accept);
 
 
 var posts = [];
-var current_post = document.getElementById("posts").firstElementChild;
-var size = document.getElemntByID("posts").childElementCount;
+var current_post = document.getElementById("reviews").firstElementChild;
+var size = document.getElementById("reviews").childElementCount;
 posts.push(current_post);
 
 for(var i = 1; i < size; i++){
-	posts.push(current_posts.nextElementSobling);
+	posts.push(current_post.nextElementSobling);
 	current_post = current_post,nextElementSibling;
 }
 

@@ -7,7 +7,7 @@
     <link rel="icon" type="image/.jpg"
           href="assets/web/951_gaspra.jpg" />
     <title>Asteroids Reviews</title>
-    <script src="index.js"></script>
+    <script src="index.js" defer></script>
 </head>
 <body>
     <header>
@@ -35,6 +35,7 @@
         </div>
     </div>
 
+
     <div class="middle-portion">
         <div class="ad-container top-mid">
             <img src="assets/web/ad.jpg">
@@ -43,52 +44,54 @@
             <h3>Review our Game!</h3>
             <button type="button" id="modal-close" class="modal-hide-button">&times;</button>
         </div>
-
         <h2 class="review-title">
             Reviews
         </h2>
-        <div class="review" data-rating="5" data-recommend="I would reccomend this game">
-            <div class="review-contents">
-                <div class="review-info-container">
-                    <a href="#" class="reviewer-name">Perfecchionist</a>
-                    <div class="review-reccomend"> I would recommend!</div>
-                    <div class="review-rating">Rating: 5</div>
-                    <div class="review-description">This game is the best thing that has ever happend to my life! Whoever developed this should get a good grade in a hypothetical assignment</div>
+        <div id="reviews">
+            <div class="review" data-rating="5" data-recommend="I would reccomend this game">
+                <div class="review-contents">
+                    <div class="review-info-container">
+                        <a href="#" class="reviewer-name">Perfecchionist</a>
+                        <div class="review-reccomend"> I would recommend!</div>
+                        <div class="review-rating">Rating: 5</div>
+                        <div class="review-description">This game is the best thing that has ever happend to my life! Whoever developed this should get a good grade in a hypothetical assignment</div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="review" data-rating="1" data-recommend="I would not reccomend this game">
-            <div class="review-contents">
-                <div class="review-info-container">
-                    <a href="#" class="reviewer-name">AnnoyingCritic996</a>
-                    <div class="review-reccomend"> I would not reccomend this game</div>
-                    <div class="review-rating">Rating: 2</div>
-                    <div class="review-description">This game has caused great turmoil in my life. I spent over 20 days playing the beta just last month, causing my wife to take the kids.</div>
+            <div class="review" data-rating="1" data-recommend="I would not reccomend this game">
+                <div class="review-contents">
+                    <div class="review-info-container">
+                        <a href="#" class="reviewer-name">AnnoyingCritic996</a>
+                        <div class="review-reccomend"> I would not reccomend this game</div>
+                        <div class="review-rating">Rating: 2</div>
+                        <div class="review-description">This game has caused great turmoil in my life. I spent over 20 days playing the beta just last month, causing my wife to take the kids.</div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="review" data-rating="5" data-recommend="I would reccomend this game">
-            <div class="review-contents">
-                <div class="review-info-container">
-                    <a href="#" class="reviewer-name">Perfecchionist</a>
-                    <div class="review-reccomend"> I would recommend!</div>
-                    <div class="review-rating">Rating: 5</div>
-                    <div class="review-description">This game is the best thing that has ever happend to my life! Whoever developed this should get a good grade in a hypothetical assignment</div>
+            <div class="review" data-rating="5" data-recommend="I would reccomend this game">
+                <div class="review-contents">
+                    <div class="review-info-container">
+                        <a href="#" class="reviewer-name">Perfecchionist</a>
+                        <div class="review-reccomend"> I would recommend!</div>
+                        <div class="review-rating">Rating: 5</div>
+                        <div class="review-description">This game is the best thing that has ever happend to my life! Whoever developed this should get a good grade in a hypothetical assignment</div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="review" data-rating="1" data-recommend="I would not reccomend this game">
-            <div class="review-contents">
-                <div class="review-info-container">
-                    <a href="#" class="reviewer-name">AnnoyingCritic996</a>
-                    <div class="review-reccomend"> I would not reccomend this game</div>
-                    <div class="review-rating">Rating: 2</div>
-                    <div class="review-description">This game has caused great turmoil in my life. I spent over 20 days playing the beta just last month, causing my wife to take the kids.</div>
+            <div class="review" data-rating="1" data-recommend="I would not reccomend this game">
+                <div class="review-contents">
+                    <div class="review-info-container">
+                        <a href="#" class="reviewer-name">AnnoyingCritic996</a>
+                        <div class="review-reccomend"> I would not reccomend this game</div>
+                        <div class="review-rating">Rating: 2</div>
+                        <div class="review-description">This game has caused great turmoil in my life. I spent over 20 days playing the beta just last month, causing my wife to take the kids.</div>
+                    </div>
                 </div>
             </div>
+
         </div>
 
         <div class="ad-container bottom-mid">
@@ -119,60 +122,60 @@
         </div>
     </div>
 
-    <div id="modal-backdrop" class="hiden"></div>
-    <div id="review-modal" class="hiden">
+    <div id="modal-backdrop" class="hidden"></div>
+    <div id="review-modal" class="hidden">
         <div class="modal-body">
-                <div class="review-input-element">
-                    <fieldset id="rating-input-fieldset" class="review-fieldset">
-                        <legend>Rate this Game (1-5):</legend>
-                        <div>
-                            <input type="radio" name="review-rating-input" id="review-rating-1" value="1">
-                            <label for="review-rating-1">1</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="review-rating-input" id="review-rating-2" value="2">
-                            <label for="review-rating-2">2</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="review-rating-input" id="review-rating-3" value="3">
-                            <label for="review-rating-3">3</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="review-rating-input" id="review-rating-4" value="4">
-                            <label for="review-rating-4">4</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="review-rating-input" id="review-rating-5" value="5">
-                            <label for="review-rating-5">5</label>
-                        </div>
-                    </fieldset>
-                </div>
-                <div class="review-input-element">
-                    <label for="reviewer-name-input">Reviewer Name:</label>
-                    <input type="text" id="reviewer-name-input">
-                </div>
-                <div class="review-input-element">
-                    <label for="discription-input">Description:</label>
-                    <input type="text" id="description-input">
-                </div>
-                <div class="review-input-element">
-                    <fieldset id="Reccomend-input-fieldset" class="review-fieldset">
-                        <legend>Would you recommend this game to a friend:</legend>
-                        <div>
-                            <input type="radio" name="review-recommend-input" id="review-rating-would" value="would">
-                            <label for="review-rating-would">I would reccomend this game</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="review-recommend-input" id="review-rating-would-not" value="would-not">
-                            <label for="review-rating-would-not">I would not reccomend this game</label>
-                        </div>
-                    </fieldset>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="modal-cancel" class="modal-hide-button action-button">Cancel</button>
-                    <button type="button" id="add-review-button">Add Review</button>
-                </div>
+            <div class="review-input-element">
+                <fieldset id="rating-input-fieldset" class="review-fieldset">
+                    <legend>Rate this Game (1-5):</legend>
+                    <div>
+                        <input type="radio" name="review-rating-input" id="review-rating-1" value="1">
+                        <label for="review-rating-1">1</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="review-rating-input" id="review-rating-2" value="2">
+                        <label for="review-rating-2">2</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="review-rating-input" id="review-rating-3" value="3">
+                        <label for="review-rating-3">3</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="review-rating-input" id="review-rating-4" value="4">
+                        <label for="review-rating-4">4</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="review-rating-input" id="review-rating-5" value="5">
+                        <label for="review-rating-5">5</label>
+                    </div>
+                </fieldset>
             </div>
+            <div class="review-input-element">
+                <label for="reviewer-name-input">Reviewer Name:</label>
+                <input type="text" id="reviewer-name-input">
+            </div>
+            <div class="review-input-element">
+                <label for="discription-input">Description:</label>
+                <input type="text" id="description-input">
+            </div>
+            <div class="review-input-element">
+                <fieldset id="Reccomend-input-fieldset" class="review-fieldset">
+                    <legend>Would you recommend this game to a friend:</legend>
+                    <div>
+                        <input type="radio" name="review-recommend-input" id="review-rating-would" value="would">
+                        <label for="review-rating-would">I would reccomend this game</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="review-recommend-input" id="review-rating-would-not" value="would-not">
+                        <label for="review-rating-would-not">I would not reccomend this game</label>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="modal-cancel" class="modal-hide-button action-button">Cancel</button>
+                <button type="button" id="add-review-button">Add Review</button>
+            </div>
+        </div>
     </div>
 </body>
 </html>
