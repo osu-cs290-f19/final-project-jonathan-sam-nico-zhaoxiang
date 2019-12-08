@@ -17,6 +17,8 @@ a:hover{
 
 /*	header	*/
 header{
+	height: 120px;
+	margin-bottom: 15px;
 	background-color: #000;
 	display: flex;
 	align-items: center;
@@ -209,4 +211,11 @@ select{
 }
 .bd{
 	
+}
+
+.game-info{
+	left: 30px;
+	top: 150px;
+	position: Fixed;
+	color: white;
 }
