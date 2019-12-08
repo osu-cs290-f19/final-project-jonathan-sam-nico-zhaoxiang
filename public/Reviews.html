@@ -94,7 +94,7 @@
             <img src="assets/web/cholula-ad.jfif" />
         </div>
     </div>
- 
+
     <div class="lower-portion">
         <div class="links-and-ad-notice">
             <div class="half-size-for-bottom" id="bottom-links-container">
@@ -117,59 +117,61 @@
             </div>
         </div>
     </div>
-    <div id="review-modal" class="hidden">
 
+    <div id="modal-backdrop" class="hiden"></div>
+    <div id="review-modal" class="hiden">
         <div class="modal-body">
-            <div class="review-input-element">
-                <fieldset id="rating-input-fieldset" class="review-fieldset">
-                    <legend>Rate this Game (1-5):</legend>
-                    <div>
-                        <input type="radio" name="review-rating-input" id="review-rating-1" value="1">
-                        <label for="review-rating-1">1</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="review-rating-input" id="review-rating-2" value="2">
-                        <label for="review-rating-2">2</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="review-rating-input" id="review-rating-3" value="3">
-                        <label for="review-rating-3">3</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="review-rating-input" id="review-rating-4" value="4">
-                        <label for="review-rating-4">4</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="review-rating-input" id="review-rating-5" value="5">
-                        <label for="review-rating-5">5</label>
-                    </div>
-                </fieldset>
+                <div class="review-input-element">
+                    <fieldset id="rating-input-fieldset" class="review-fieldset">
+                        <legend>Rate this Game (1-5):</legend>
+                        <div>
+                            <input type="radio" name="review-rating-input" id="review-rating-1" value="1">
+                            <label for="review-rating-1">1</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="review-rating-input" id="review-rating-2" value="2">
+                            <label for="review-rating-2">2</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="review-rating-input" id="review-rating-3" value="3">
+                            <label for="review-rating-3">3</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="review-rating-input" id="review-rating-4" value="4">
+                            <label for="review-rating-4">4</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="review-rating-input" id="review-rating-5" value="5">
+                            <label for="review-rating-5">5</label>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="review-input-element">
+                    <label for="reviewer-name-input">Reviewer Name:</label>
+                    <input type="text" id="reviewer-name-input">
+                </div>
+                <div class="review-input-element">
+                    <label for="discription-input">Description:</label>
+                    <input type="text" id="description-input">
+                </div>
+                <div class="review-input-element">
+                    <fieldset id="Reccomend-input-fieldset" class="review-fieldset">
+                        <legend>Would you recommend this game to a friend:</legend>
+                        <div>
+                            <input type="radio" name="review-recommend-input" id="review-rating-would" value="would">
+                            <label for="review-rating-would">I would reccomend this game</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="review-recommend-input" id="review-rating-would-not" value="would-not">
+                            <label for="review-rating-would-not">I would not reccomend this game</label>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="modal-cancel" class="modal-hide-button action-button">Cancel</button>
+                    <button type="button" id="add-review-button">Add Review</button>
+                </div>
             </div>
-            <div class="review-input-element">
-                <label for="reviewer-name-input">Reviewer Name:</label>
-                <input type="text" id="reviewer-name-input">
-            </div>
-            <div class="review-input-element">
-                <label for="discription-input">Description:</label>
-                <input type="text" id="description-input">
-            </div>
-            <div class="review-input-element">
-                <fieldset id="Reccomend-input-fieldset" class="review-fieldset">
-                    <legend>Would you recommend this game to a friend:</legend>
-                    <div>
-                        <input type="radio" name="review-recommend-input" id="review-rating-would" value="would">
-                        <label for="review-rating-would">I would reccomend this game</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="review-recommend-input" id="review-rating-would-not" value="would-not">
-                        <label for="review-rating-would-not">I would not reccomend this game</label>
-                    </div>
-                </fieldset>
-            </div>
-            <div id="add-review-button-container">
-                <button type="button" id="add-review-button">&times;</button>
-            </div>
-        </div>
     </div>
 </body>
 </html>

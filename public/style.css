@@ -213,9 +213,47 @@ select{
 	
 }
 
+<<<<<<< HEAD
 .game-info{
 	left: 30px;
 	top: 150px;
 	position: Fixed;
 	color: white;
+=======
+.hidden {
+    display: none;
+}
+
+.modal-body {
+    padding: 20px;
+}
+#modal-backdrop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.modal-body {
+    width: auto;
+    max-width: 600px;
+    min-width: 350px;
+    min-height: 300px;
+    margin: 40px auto;
+    background-color: #ff5300;
+    border-radius: 15px;
+}
+
+#review-modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1010;
+    overflow: scroll;
+>>>>>>> 4ee4a2d940e2e121e474b1db3b2624e38a9fb0f5
 }
