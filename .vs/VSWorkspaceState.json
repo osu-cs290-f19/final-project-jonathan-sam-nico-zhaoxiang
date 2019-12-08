@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Final Project"
+    "\\public",
+    "\\public\\assets\\game",
+    "\\public\\assets\\game\\asteroids"
   ],
-  "SelectedNode": "\\Final Project\\Homepage.html",
+  "SelectedNode": "\\public\\style.css",
   "PreviewInSolutionExplorer": false
 }

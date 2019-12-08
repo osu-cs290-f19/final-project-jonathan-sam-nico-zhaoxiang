@@ -12,17 +12,15 @@ body {
 }
 div.light2 {
     background-color: mediumvioletred;
-    color:white;
 }
 .darkmode {
-        background-color: black;
+        background-color: darkslategrey;
 }
 .dark {
     color: wheat;
 }
 div.dark2 {
     background-color: rebeccapurple;
-    color: firebrick;
 }
 .osumode {
     background-color: blue;
@@ -32,10 +30,9 @@ div.dark2 {
 }
 div.osu2{
     background-color:cadetblue;
-    color: blue;
 }
 
-a, h1{
+a, h1, p{
 	text-decoration: none;
     color: inherit;
 }
