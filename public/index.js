@@ -1,4 +1,8 @@
-document.getElementById("modal-close").addEventListener("click",modal_toggle);
+//console.log("modal-close ",document.getElementById('modal-close'));
+var close = document.getElementById("modal-close");
+close.addEventListener('click',modal_accept);
+
+//document.getElementById("modal-close").addEventListener("click",modal_toggle);
 document.getElementById("review-modal").addEventListener("click",modal_accept);
 
 
@@ -19,6 +23,7 @@ function modal_toggle(){
 	document.getElementById("review-rating-would").checked=true;
 
 	document.getElementById("review-modal").classList.toggle('hidden');
+	document.getElementById("modal-backdrop").classList.toggle('hidden');
 }
 
 function modal_accept(){
