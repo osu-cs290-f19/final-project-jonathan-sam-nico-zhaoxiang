@@ -1,7 +1,7 @@
 var canvas = document.getElementById("User");
 canvas.width  = window.innerWidth-50;
 var wid = window.innerWidth;
-canvas.height = window.innerHeight-30;
+canvas.height = window.innerHeight-150;
 var hei =  window.innerHeight;
 var ctxUser = canvas.getContext("2d");
 
@@ -11,6 +11,8 @@ USER_MAX_SPEED = 12;
 USER_ACC = 1;
 USER_SLOW = .1;
 
+BULLET_IMG = new Image();
+BULLET_IMG.src = '../public/assets/game/bullet.png'
 BULLET_SPREAD = 11;
 BULLET_SPEED = 7;
 BULLET_TIMER = 8;
@@ -46,16 +48,15 @@ function rad (num) {
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
-function newBullet( ux, udx, uy, udy) {
+function newBullet( ux, udx, uy, udy, deg) {
   bullets.push({
+    deg: deg,
     x : Math.round(ux),
     dx: udx,
     y : Math.round(uy),
     dy: udy,
   })
 }
-rocksIMG = new Image();
-rocksIMG.src = '../public/assets/game/player.png';
 function newRock(user){
   var right = getRandomInt(2);
   var bottom = getRandomInt(2);
@@ -64,7 +65,11 @@ function newRock(user){
   if (bottom == 1) {bottom = canvas.height/2}
   else {bottom = -canvas.height/2}
   var theta = getRandomInt(360);
+  rocksIMG = new Image();
+  var index = getRandomInt(15)+1;
+  rocksIMG.src = '../public/assets/game/asteroids/'+index+'.png';
   rocks.push({
+    IMG: rocksIMG,
     x : right,
     dx: user.pointX(theta)/ROCK_SPEED,
     y : bottom,
@@ -105,9 +110,12 @@ function drawAllRocks(context, rocks, bullets) {
 function drawBullet(context, bullet) {
   bullet.x += bullet.dx;
   bullet.y += bullet.dy;
-  context.beginPath();
-  context.arc((canvas.width/2)+bullet.x, (canvas.height/2)+bullet.y, 5, 0, 2 * Math.PI);
-  context.stroke();
+  //console.log(bullet.deg); 
+  context.save();
+  context.translate((canvas.width/2)+bullet.x,(canvas.height/2)+bullet.y);
+  context.rotate(rad(bullet.deg));
+  context.drawImage(BULLET_IMG,-25,-10,50,20);
+  context.restore();
 }
 function drawRock(context, rock) {
   rock.x += rock.dx;
@@ -116,9 +124,10 @@ function drawRock(context, rock) {
   if ( Math.abs(rock.x) > (canvas.width/2) + 20 ) { rock.x *= -1; }
   if ( Math.abs(rock.y) > (canvas.height/2) + 20 ) { rock.y *= -1; }
 
+
   context.save();
   context.translate((canvas.width/2)+rock.x,(canvas.height/2)+rock.y);
-  context.drawImage(rocksIMG,-25,-25,50,50);
+  context.drawImage(rock.IMG,-25,-25,50,50);
   context.restore();
 
 
@@ -129,6 +138,10 @@ function drawRock(context, rock) {
   */
 }
 var thrustTimer = 11;
+function drawThrusters(context,user) {
+  x = user.x + Math.round(user.pointX(Math.abs((user.deg)%360))/2.2);
+  y = user.y + Math.round(user.pointY(Math.abs((user.deg)%360))/2.2);
+}
 function drawUser(context,user) {
   if (user.deg > 360) { user.deg = 0; }
   else if (user.deg < 0) { user.deg = 360; }
@@ -243,11 +256,16 @@ function render() {
   if ( fire ) {
     if ( timer == BULLET_TIMER ) { timer = 0; }
     if ( timer == 0 ) {
+      var degree = Math.abs(user.deg+spread(BULLET_SPREAD));
+      console.log(degree);
+      x = user.x + Math.round(user.pointX(Math.abs((user.deg)%360))/2.2);
+      y = user.y + Math.round(user.pointY(Math.abs((user.deg)%360))/2.2);
       newBullet(
-        user.x,
-        user.pointX(Math.abs(user.deg+spread(BULLET_SPREAD)))/BULLET_SPEED,
-        user.y,
-        user.pointY(Math.abs(user.deg+spread(BULLET_SPREAD)))/BULLET_SPEED)
+        x,
+        user.pointX(degree)/BULLET_SPEED,
+        y,
+        user.pointY(degree)/BULLET_SPEED,
+        degree);
     }
     timer++;
 

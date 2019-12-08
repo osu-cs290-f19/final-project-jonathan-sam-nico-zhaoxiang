@@ -17,6 +17,8 @@ a:hover{
 
 /*	header	*/
 header{
+	height: 120px;
+	margin-bottom: 15px;
 	background-color: #000;
 	display: flex;
 	align-items: center;
@@ -211,6 +213,13 @@ select{
 	
 }
 
+<<<<<<< HEAD
+.game-info{
+	left: 30px;
+	top: 150px;
+	position: Fixed;
+	color: white;
+=======
 .hidden {
     display: none;
 }
@@ -234,7 +243,7 @@ select{
     min-width: 350px;
     min-height: 300px;
     margin: 40px auto;
-    background-color: #fff;
+    background-color: #ff5300;
     border-radius: 15px;
 }
 
@@ -246,4 +255,5 @@ select{
     right: 0;
     z-index: 1010;
     overflow: scroll;
+>>>>>>> 4ee4a2d940e2e121e474b1db3b2624e38a9fb0f5
 }
