@@ -55,7 +55,7 @@ function newBullet( ux, udx, uy, udy) {
   })
 }
 rocksIMG = new Image();
-rocksIMG.src = '../../../public/assets/game/player.png';
+rocksIMG.src = '../public/assets/game/player.png';
 function newRock(user){
   var right = getRandomInt(2);
   var bottom = getRandomInt(2);
@@ -227,8 +227,8 @@ var user = {
   }
   
 }
-user.IMG.src = '../../../public/assets/game/player.png';
-user.backThrustIMG.src = '../../../public/assets/game/main_thrust.png';
+user.IMG.src = '../public/assets/game/player.png';
+user.backThrustIMG.src = '../public/assets/game/main_thrust.png';
 var bullets = [];
 var rocks = [];
 function render() {
