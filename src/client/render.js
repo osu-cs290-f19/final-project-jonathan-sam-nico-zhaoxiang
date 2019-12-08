@@ -11,6 +11,8 @@ USER_MAX_SPEED = 12;
 USER_ACC = 1;
 USER_SLOW = .1;
 
+BULLET_IMG = new Image();
+BULLET_IMG.src = '../../../public/assets/game/bullet.png'
 BULLET_SPREAD = 11;
 BULLET_SPEED = 7;
 BULLET_TIMER = 8;
@@ -105,9 +107,12 @@ function drawAllRocks(context, rocks, bullets) {
 function drawBullet(context, bullet) {
   bullet.x += bullet.dx;
   bullet.y += bullet.dy;
+
+  /*
   context.beginPath();
   context.arc((canvas.width/2)+bullet.x, (canvas.height/2)+bullet.y, 5, 0, 2 * Math.PI);
   context.stroke();
+  */
 }
 function drawRock(context, rock) {
   rock.x += rock.dx;
