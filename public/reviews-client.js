@@ -1,4 +1,7 @@
-document.getElementById("review-modal").addEventListener("click",modal_toggle);
+document.getElementById("add-review-button").addEventListener("click",modal_toggle);
+document.getElementById("main-links").addEventListener("click",modal_toggle);
+document.getElementById("main-links").addEventListener("click",modal_accept);
+
 
 var posts = [];
 var current_post = document.getElementById("posts").firstElementChild;
