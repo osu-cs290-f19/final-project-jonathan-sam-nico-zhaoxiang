@@ -1,5 +1,5 @@
 var canvas = document.getElementById("User");
-canvas.width  = window.innerWidth-50;
+canvas.width  = window.innerWidth-40;
 var wid = window.innerWidth;
 canvas.height = window.innerHeight-150;
 var hei =  window.innerHeight;
@@ -10,9 +10,11 @@ TURN_SPEED = 2;
 USER_MAX_SPEED = 12;
 USER_ACC = 1;
 USER_SLOW = .1;
+MINI_THRUST_IMG = new Image();
+MINI_THRUST_IMG.src = '../public/assets/game/side_thrust.png';
 
 BULLET_IMG = new Image();
-BULLET_IMG.src = '../public/assets/game/bullet.png'
+BULLET_IMG.src = '../public/assets/game/bullet.png';
 BULLET_SPREAD = 11;
 BULLET_SPEED = 7;
 BULLET_TIMER = 8;
@@ -69,6 +71,7 @@ function newRock(user){
   var index = getRandomInt(15)+1;
   rocksIMG.src = '../public/assets/game/asteroids/'+index+'.png';
   rocks.push({
+    rotate: getRandomInt(360),
     IMG: rocksIMG,
     x : right,
     dx: user.pointX(theta)/ROCK_SPEED,
@@ -125,8 +128,10 @@ function drawRock(context, rock) {
   if ( Math.abs(rock.y) > (canvas.height/2) + 20 ) { rock.y *= -1; }
 
 
+  rock.rotate += .5;
   context.save();
   context.translate((canvas.width/2)+rock.x,(canvas.height/2)+rock.y);
+  context.rotate(rad(rock.rotate));
   context.drawImage(rock.IMG,-25,-25,50,50);
   context.restore();
 
@@ -139,8 +144,14 @@ function drawRock(context, rock) {
 }
 var thrustTimer = 11;
 function drawThrusters(context,user) {
-  x = user.x + Math.round(user.pointX(Math.abs((user.deg)%360))/2.2);
-  y = user.y + Math.round(user.pointY(Math.abs((user.deg)%360))/2.2);
+  x = user.x + Math.round(user.pointX(Math.abs((user.deg+30)%360))/3);
+  y = user.y + Math.round(user.pointY(Math.abs((user.deg+30)%360))/3);
+  
+  context.save();
+  context.translate((canvas.width/2)+x,(canvas.height/2)+y);
+  context.rotate(rad(user.deg+30));
+  context.drawImage(MINI_THRUST_IMG,-10,-5,20,10);
+  context.restore();
 }
 function drawUser(context,user) {
   if (user.deg > 360) { user.deg = 0; }
@@ -176,8 +187,8 @@ context.translate((canvas.width/2)+user.x,(canvas.height/2)+user.y);
 }
 // This is really laggy when it is used
 function refreshScreen(context, canvas, window, wid, hei) {
-  if ( wid != window.innerWidth) { canvas.width  = window.innerWidth-50; }
-  if ( hei != window.innerHeight) { canvas.height = window.innerHeight-30; }
+  if ( canvas.width != window.innerWidth-40) { canvas.width  = window.innerWidth-40; }
+  if ( canvas.height != window.innerHeight-150 ) { canvas.height = window.innerHeight-150; }
 
   context.clearRect(0, 0, canvas.width, canvas.height);
   context.fillStyle = "black";
@@ -272,6 +283,7 @@ function render() {
   }
 
   drawUser(ctxUser, user);
+  drawThrusters(ctxUser, user);
   drawAllBullets(ctxUser, bullets);
   drawAllRocks(ctxUser, rocks, bullets);
 

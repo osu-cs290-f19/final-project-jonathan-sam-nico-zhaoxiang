@@ -213,13 +213,13 @@ select{
 	
 }
 
-<<<<<<< HEAD
 .game-info{
 	left: 30px;
 	top: 150px;
 	position: Fixed;
 	color: white;
-=======
+}
+
 .hidden {
     display: none;
 }
@@ -255,5 +255,4 @@ select{
     right: 0;
     z-index: 1010;
     overflow: scroll;
->>>>>>> 4ee4a2d940e2e121e474b1db3b2624e38a9fb0f5
 }
