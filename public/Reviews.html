@@ -7,9 +7,9 @@
     <link rel="icon" type="image/.jpg"
           href="assets/web/951_gaspra.jpg" />
     <title>Asteroids Reviews</title>
-    <script src="index.js" defer></script>
+    <script src="test.js" defer></script>
 </head>
-<body>
+<body class="osumode">
     <header>
         <div class="site-img-container">
             <img src="assets/web/951_Gaspra.jpg" alt="game-logo" />
@@ -18,11 +18,11 @@
     </header>
 
     <div class="upper-portion">
-        <div class="color-mode-container top-right">
+        <div class="color-mode-container top-right ">
             <label for="color-mode">Mode</label>
-            <div class="filter-input-element">
+            <div class="filter-input-element ">
                 <select id="color-mode" name="color-chooser">
-                    <option selected value="">Light Mode</option>
+                    <option>Light Mode</option>
                     <option>Dark Mode</option>
                     <option>OSU Themed</option>
                 </select>
@@ -44,10 +44,11 @@
             <h3>Review our Game!</h3>
             <button type="button" id="modal-close" class="modal-hide-button">&times;</button>
         </div>
-        <h2 class="review-title">
-            Reviews
-        </h2>
+
         <div id="reviews">
+            <h2 class="review-title">
+                Reviews
+            </h2>
             <div class="review" data-rating="5" data-recommend="I would reccomend this game">
                 <div class="review-contents">
                     <div class="review-info-container">
