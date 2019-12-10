@@ -370,12 +370,14 @@ function checkPlayer(canvas, user, rocks) {
   return 1;
 }
 
-function reset(bullets, rocks,  user) {
-  bullets = [];
-  rocks = [];
+function reset(user) {
   user.x = 0;
   user.y = 0;
-  user.deg - 270;
+  user.thrust = 0;
+  user.d = 0;
+  user.dd = 0;
+  user.deg = 270;
+  user.ddeg = 0;
 }
 
 user.IMG.src = '../public/assets/game/player.png';
@@ -385,6 +387,7 @@ var rocks = [];
 var powerUps = [0,0,0]; // ,,
 function render() {
   refreshScreen(ctxUser, canvas, window);
+  document.getElementById("score-count").innerHTML = score;
   if (rocks.length == 0) {
     lvl+=1;
     document.getElementById("lvl-count").innerHTML = lvl;
@@ -420,8 +423,12 @@ function render() {
     case 1:
       break;
     case 2:
+      bullets = [];
+      rocks = [];
+      lvl = 0;
+      score = 0;
       clearInterval(renderInterval); // pause
-      reset(bullets, rocks, user);
+      reset(user);
       reSize = setInterval(render2, 1000 / 60);
       break;
   }
