@@ -378,3 +378,6 @@ h1.over-heading{
     text-align: center;
 
 }
+button:hover {
+    cursor: pointer;
+}
