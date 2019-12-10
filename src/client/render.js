@@ -37,10 +37,6 @@ BULLET_TIMER = 8;
 
 ROCK_SPEED = 20;
 
-function spread(spread) {
-  return Math.floor(Math.random() * spread) - spread/2;
-}
-
 window.addEventListener("keydown", keysPressed, false);
 window.addEventListener("keyup", keysReleased, false);
 
@@ -69,6 +65,9 @@ function keysReleased(event) {
   if (event.keyCode == 32) { fire = false; timer = 0; } 
   if (event.keyCode == 83) { user.dd = USER_SLOW; } // stop back
   if (event.keyCode == 87) { user.dd = -USER_SLOW; } // stop forward
+}
+function spread(spread) {
+  return Math.floor(Math.random() * spread) - spread/2;
 }
 function rad (num) {
   return num * Math.PI / 180;
@@ -258,7 +257,6 @@ context.translate((canvas.width/2)+user.x,(canvas.height/2)+user.y);
 
   context.restore();
 }
-// This is really laggy when it is used
 function refreshScreen(context, canvas, window) {
   if ( canvas.width != window.innerWidth-40) { canvas.width  = window.innerWidth-40; }
   if ( canvas.height != window.innerHeight-150 ) { canvas.height = window.innerHeight-150; }
