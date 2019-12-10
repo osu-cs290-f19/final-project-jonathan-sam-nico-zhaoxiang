@@ -54,13 +54,9 @@ header{
 	justify-content: center;
 }	
 
-header a {
-}
-
 .site-img-container img{
 	height: 50px;
 	width: 50px;
-	object-fit: contain;	
 }
 
 .site-title {
@@ -75,11 +71,10 @@ div.screenshots-parent{
     margin-top: 40px;
     text-align: center;
 }
-div.screenshots{
-    display: inline-block;
-    height: 70px;
-    width: 500px;
+.screenshots *{
+    display: flex;
     margin-bottom: 60px;
+	max-height: 400px;
 }
 header.site-title{
     margin: 0 0 0 0px;
@@ -159,7 +154,6 @@ select{
 .game-img-container img{
 	width: 400px;
 	height: 300px;
-	object-fit: contain;
 }
 
 .game-details-container{
@@ -258,6 +252,8 @@ select{
 .hidden {
     display: none;
 }
+
+/*	Reviews Page */
 
 #modal-backdrop {
     position: fixed;
@@ -360,6 +356,22 @@ select{
 	font-style: italic;
 }
 
+/* 	Controls Page */
+.power-ups-container{
+	max-width: 70%;
+	object-fit: contain;
+}
+
+.goal-container{
+	max-width: 70%;
+}
+
+/*	Misc */
 .space{
     padding:20px;
 }
+
+.img-container{
+	object-fit: contain;
+}
+

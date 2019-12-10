@@ -11,7 +11,7 @@
 </head>
 <body class="lightmode">
     <header>
-        <div class="site-img-container">
+        <div class="site-img-container img-container">
             <img src="assets/web/951_Gaspra.jpg" alt="game-logo" />
         </div>
         <h1 class="site-title"><a href="#">Asteroids</a></h1>
@@ -38,51 +38,63 @@
             <img src="assets/web/ad.jpg">
         </div>
         <div class="how-to-play-container">
-            <div id="how-to-play-title">
+            <h3 id="how-to-play-title">
                 How to Play:
-            </div>
+            </h3>
             <ul class="how-to-play-list">
                 <li>
-                    Up Arrow - Moves starship forward
+                    Up Arrow - Accelerate forwards
                 </li>
                 <li>
-                    Down Arrow - Moves starship downwards
+                    Down Arrow - Accelerate backwards
                 </li>
                 <li>
-                    Right Arrow - Turns starship clock-wise
+                    Right Arrow - Turn clockwise
                 </li>
                 <li>
-                    Left Arrow - Turns starship counter-clock-wise
+                    Left Arrow - Turn counter-clockwise
                 </li>
                 <li>
-                    Spacebar - Shoots the artillery in the starship
+                    Spacebar - Shoot!
                 </li>
             </ul>
-            <div id="how-to-play-img-container">
+            <div class="how-to-play-img-container img-container">
                 <img src="assets/web/shooting.png" alt="how-to-play-img" />
             </div>
         </div>
         <div class="goal-container">
-            <div id="goal-img-container">
-                <img src="assets/web/score.png" alt="goal-img" />
-            </div>
-            <div id="goal-title">
+            <h3 id="goal-title">
                 Goal of the Game:
-            </div>
+            </h3>
             <div class="goal-body">
-                The goal of the game is rather simple, all you need to do is survive.
+                The goal is to survive the endless asteroid field. Your progress is tracked by your score, and the level. Asteroids get faster with each level. 
+            </div>
+			<div class="goal-img-container img-container">
+                <img src="assets/web/score.png" alt="goal-img" />
             </div>
         </div>
         <div class="power-ups-container">
-            <div id="power-ups-title">
+            <h3 id="power-ups-title">
                 Power Ups:
-            </div>
+            </h3>
             <div id="power-ups-body">
-                Picking up the power-ups will give you a benefit that will let you survive for longer, an example of a power-up would be the increase in shooting spread
+				Power-ups are essential for your survival, granting boons to your ship attributes. Pick them up by flying into them.
             </div>
-            <div id="power-ups-img-container">
-                <img src="assets/game/fire_rt_pwr_2.png" alt="power-ups-img" />
-            </div>
+			<ul class="power-ups-list">
+				
+				<li class="power-ups-img-container img-container">
+					Bullet Spread -----------  
+					<img src="assets/game/spread_pwr.png" alt="power-ups-img" />
+				</li>
+				<li class="power-ups-img-container img-container">
+					Fire Rate ----------------  
+					<img src="assets/game/fire_rt_pwr.png" alt="power-ups-img" />
+				</li>
+				<li class="power-ups-img-container img-container">
+					Bullet Speed ------------
+					<img src="assets/game/fire_rt_pwr_2.png" alt="power-ups-img" />
+				</li>
+			</ul>
         </div>
         <div class="ad-container bottom-mid">
             <img src="assets/web/cholula-ad.jfif" />
@@ -99,7 +111,7 @@
             <div class="ad-notice">
                 <a href="#" class="ad-free">Go Ad-Free!</a>
                 <div class="ad-paragraph">
-                    <div class="ad-notice-container">
+                    <div class="ad-notice-container img-container">
                         <img src="assets/web/No-Ads.png" />
                     </div>
                     <p class="bd small-text">
