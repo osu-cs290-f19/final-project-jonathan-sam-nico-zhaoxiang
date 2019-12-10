@@ -8,16 +8,6 @@ A game by Nico Orint, Samuel Lewis, and Johnathan Macias
 GAME:
 	-Asteroid collision with player
 
-	-Wrap around
-
-	-Wrap around with buffer on the sides to hide teleports
-
-	-Size Canvas with CSS or Html to avoid frame updates
-	
-	-Score Incremented with killed asteroids
-	
-	-Side thrusters
-
 ART:
 	-Space Station
 
