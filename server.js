@@ -29,7 +29,7 @@
 	}
 	else if(req.url == '/controls.html'){
 		res.writeHead(200,{
-			'Content-Type':'text/javascript'});
+			'Content-Type':'text/html'});
 		res.write(javascript);
 		res.end();
 	}
