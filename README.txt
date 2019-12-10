@@ -7,6 +7,8 @@ A game by Nico Orint, Samuel Lewis, and Johnathan Macias
 
 GAME:
 	-Asteroid collision with player
+	
+	-Powerups?
 
 ART:
 	-Space Station
