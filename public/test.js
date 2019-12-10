@@ -17,52 +17,51 @@ for(var i =0; i<divs.length; i++){
 	}
 	else{divs[i].classList.add('light');}
 }
-console.log(document.title);
-title[0].classList.add('light');
-colormode.addEventListener('change', function(event){
-	console.log(event.target.value);
-	for(var i =0; i<divs.length; i++){
-		divs[i].classList.remove("osu");
-		divs[i].classList.remove('dark');
-		divs[i].classList.remove('light');	
-		divs[i].classList.remove("osu2");
-		divs[i].classList.remove('dark2');
-		divs[i].classList.remove('light2');
-		if(event.target.value =="Light Mode"){
-			if(divs[i].classList.contains('upper-portion')||divs[i].classList.contains('lower-portion')||
-			divs[i].classList.contains('game-details-container')||divs[i].classList.contains('modal-header')){
-				divs[i].classList.add('light2');
+
+if(document.title != "Asteroids"){
+	colormode.addEventListener('change', function(event){
+		console.log(event.target.value);
+		for(var i =0; i<divs.length; i++){
+			divs[i].classList.remove("osu");
+			divs[i].classList.remove('dark');
+			divs[i].classList.remove('light');	
+			divs[i].classList.remove("osu2");
+			divs[i].classList.remove('dark2');
+			divs[i].classList.remove('light2');
+			if(event.target.value =="Light Mode"){
+				if(divs[i].classList.contains('upper-portion')||divs[i].classList.contains('lower-portion')||
+				divs[i].classList.contains('game-details-container')||divs[i].classList.contains('modal-header')){
+					divs[i].classList.add('light2');
+				}
+				else{divs[i].classList.add('light');
+				}
+				if(i==0){
+				body[0].className ="lightmode"}
 			}
-			else{divs[i].classList.add('light');
+			else if(event.target.value =="Dark Mode"){
+				if(divs[i].classList.contains('upper-portion')||divs[i].classList.contains('lower-portion')||
+				divs[i].classList.contains('game-details-container')||divs[i].classList.contains('modal-header')){
+					divs[i].classList.add('dark2');
+				}
+				else{divs[i].classList.add('dark');
+				}
+				if(i==0){
+				body[0].className ="darkmode"}
 			}
-			if(i==0){
-			title[0].className = "light site-title";
-			body[0].className ="lightmode"}
+			else{
+				if(divs[i].classList.contains('upper-portion')||divs[i].classList.contains('lower-portion')||
+				divs[i].classList.contains('game-details-container')||divs[i].classList.contains('modal-header')){
+					divs[i].classList.add('osu2');
+				}
+				else{divs[i].classList.add('osu');
+				}
+				if(i==0){
+				body[0].className ="osumode"}
+			}
 		}
-		else if(event.target.value =="Dark Mode"){
-			if(divs[i].classList.contains('upper-portion')||divs[i].classList.contains('lower-portion')||
-			divs[i].classList.contains('game-details-container')||divs[i].classList.contains('modal-header')){
-				divs[i].classList.add('dark2');
-			}
-			else{divs[i].classList.add('dark');
-			}
-			if(i==0){
-			title[0].className = "dark site-title";
-			body[0].className ="darkmode"}
-		}
-		else{
-			if(divs[i].classList.contains('upper-portion')||divs[i].classList.contains('lower-portion')||
-			divs[i].classList.contains('game-details-container')||divs[i].classList.contains('modal-header')){
-				divs[i].classList.add('osu2');
-			}
-			else{divs[i].classList.add('osu');
-			}
-			if(i==0){
-			title[0].className = "osu site-title";
-			body[0].className ="osumode"}
-		}
-	}
- });
+	});
+}
+
 
 //console.log(body[0].classList[0]);
 if(document.title =="Reviews"){
