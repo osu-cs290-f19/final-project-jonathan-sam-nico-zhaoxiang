@@ -8,13 +8,13 @@ body {
     background-color: lightcyan;
 }
 .light{
-    color: lightgoldenrodyellow;
+    color: black;
 }
 div.light2 {
-    background-color: #b3b2b2;
+    background-color: lightgray;
 }
 .darkmode {
-        background-color: rgb(17, 9, 9);
+    background-color: rgb(17, 9, 9);
 }
 .dark {
     color: #640000;
@@ -301,7 +301,7 @@ select{
 	border-style: solid;
 }
 
-.modal-header #modal-close{
+.modal-button{
 	border-radius: 3px;
 	border-width: 1px;
 	border-style: solid;
