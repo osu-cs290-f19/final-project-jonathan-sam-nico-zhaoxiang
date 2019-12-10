@@ -64,6 +64,7 @@ header a {
 }
 
 .site-title {
+	color: white;
 	font-size: 80px;
 	font-weight: 100;
 	margin: 0 0 0 20px;
@@ -257,9 +258,6 @@ select{
     display: none;
 }
 
-.modal-body {
-    padding: 20px;
-}
 #modal-backdrop {
     position: fixed;
     top: 0;
@@ -271,12 +269,27 @@ select{
 }
 
 .modal-body {
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
     width: auto;
     max-width: 600px;
     min-width: 350px;
-    min-height: 300px;
     margin: 40px auto;
     border-radius: 15px;
+}
+
+.review-input-element{
+	padding: 5px;
+}
+
+.rating-input *{
+	margin: 5px;	
+}
+
+.review-fieldset *{
+	display: inline;
+	margin: 2px;
 }
 
 #review-modal {
@@ -301,6 +314,11 @@ select{
 	border-style: solid;
 }
 
+.modal-footer{
+	display: flex;
+	justify-content: center;
+}
+
 .modal-button{
 	border-radius: 3px;
 	border-width: 1px;
@@ -322,6 +340,25 @@ select{
 	border-style: solid;
 	border-color: black;
 }
+
+.reviewer-name{
+	text-decoration: underline;
+	font-size: 120%;
+}
+
+#description-input{
+	margin-left: 48px;	
+}
+
+.text-input *{
+	margin-left: 15px;
+	min-width: 60%;
+}
+
+.review-recommend{
+	font-style: italic;
+}
+
 .neutral-color{
     background-color: #373737;
 }
