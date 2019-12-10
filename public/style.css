@@ -11,7 +11,7 @@ body {
     color: lightgoldenrodyellow;
 }
 div.light2 {
-    background-color: seagreen;
+    background-color: #b3b2b2;
 }
 .darkmode {
         background-color: rgb(17, 9, 9);
@@ -290,11 +290,37 @@ select{
     cursor: pointer;
 }
 .modal-header{
-    background-color: aliceblue;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10px;
+	
+    background-color: black;
+	border-radius: 3px;
+	border-width: 2px;
+	border-style: solid;
+}
+
+.modal-header #modal-close{
+	border-radius: 3px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: black;
+	font-weight: bold;
 }
 
 #reviews{
    background-color: black;
+}
+
+.review{
+	margin: 10px;
+	padding: 10px;
+	background-color: gray;
+	border-radius: 3px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: black;
 }
 .neutral-color{
     background-color: #373737;
