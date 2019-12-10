@@ -16,10 +16,23 @@ USER_SLOW = .08;
 MINI_THRUST_IMG = new Image();
 MINI_THRUST_IMG.src = '../public/assets/game/side_thrust.png';
 
+POWER_SPEED = 20;
+
+POWER_PLUS_IMG = new Image();
+POWER_PLUS_IMG.src = '../public/assets/game/fire_rt_pwr.png';
+
+POWER_TIMES_IMG = new Image();
+POWER_TIMES_IMG.src = '../public/assets/game/fire_rt_pwr_2.png';
+
+POWER_SPREAD_IMG = new Image();
+POWER_SPREAD_IMG.src = '../public/assets/game/spread_pwr.png';
+
+POWER_IMGS = [POWER_PLUS_IMG, POWER_TIMES_IMG, POWER_SPREAD_IMG];
+
 BULLET_IMG = new Image();
 BULLET_IMG.src = '../public/assets/game/bullet.png';
 BULLET_SPREAD = 11;
-BULLET_SPEED = 5;
+BULLET_SPEED = 8;
 BULLET_TIMER = 8;
 
 ROCK_SPEED = 20;
@@ -72,6 +85,22 @@ function newBullet( ux, udx, uy, udy, deg) {
     dy: udy,
   })
 }
+function newUp(user, ind){
+  var right = getRandomInt(2);
+  var bottom = getRandomInt(2);
+  if (right == 1) {right = canvas.width/2}
+  else {right = -canvas.width/2}
+  if (bottom == 1) {bottom = canvas.height/2}
+  else {bottom = -canvas.height/2}
+  var theta = getRandomInt(360);
+  powerUps[ind] = {
+    IMG: POWER_IMGS[ind],
+    x : right,
+    dx: user.pointX(theta)/POWER_SPEED,
+    y : bottom,
+    dy: user.pointY(theta)/POWER_SPEED,
+  };
+}
 function newRock(user){
   var right = getRandomInt(2);
   var bottom = getRandomInt(2);
@@ -91,6 +120,17 @@ function newRock(user){
     y : bottom,
     dy: user.pointY(theta)/ROCK_SPEED,
   })
+}
+function drawAllUps(context, ups) {
+  for (i=0; i<ups.length; i++) {
+    // This deletes ups out of frame
+    if (ups[i] == 0 ){
+          ups[i] = 0;
+          continue;
+        }
+        // 
+    drawUps(context, ups[i]);
+  }
 }
 function drawAllBullets(context, bullets) {
   if (bullets.length != 0) {
@@ -150,13 +190,19 @@ function drawRock(context, rock) {
   context.rotate(rad(rock.rotate));
   context.drawImage(rock.IMG,-25,-25,50,50);
   context.restore();
+}
+function drawUps(context, up) {
+  up.x += up.dx;
+  up.y += up.dy;
+
+  if ( Math.abs(up.x) > (canvas.width/2) + 20 ) { up.x *= -1; }
+  if ( Math.abs(up.y) > (canvas.height/2) + 20 ) { up.y *= -1; }
 
 
-  /*
-  context.beginPath();
-  context.arc((canvas.width/2)+bullet.x, (canvas.height/2)+bullet.y, 5, 0, 2 * Math.PI);
-  context.stroke();
-  */
+  context.save();
+  context.translate((canvas.width/2)+up.x,(canvas.height/2)+up.y);
+  context.drawImage(up.IMG,-25,-25,50,50);
+  context.restore();
 }
 var thrustTimer = 11;
 var smallTimer = 11;
@@ -221,7 +267,6 @@ function refreshScreen(context, canvas, window) {
   context.fillStyle = "black";
   context.fillRect(0, 0, canvas.width, canvas.height);
 }
-
 function clearScreen(context, canvas, window) {
     if ( canvas.width != window.innerWidth-40) { 
       canvas.width  = window.innerWidth-40;
@@ -236,7 +281,6 @@ function clearScreen(context, canvas, window) {
       context.fillRect(0, 0, canvas.width, canvas.height);
     }
 }
-
 function trig(len, deg) {
   return len * (Math.sin(rad(deg))/Math.sin(rad(90)));
 }
@@ -278,7 +322,6 @@ var user = {
   },
   
 }
-
 function checkX(canvas, user, deg) {
   if (deg < 0) { deg += 360; }
   if (deg > 360) { deg -= 360; }
@@ -289,7 +332,6 @@ function checkY(canvas, user, deg) {
   if (deg > 360) { deg -= 360; }
   return user.y + Math.round(user.pointY(Math.abs((deg)%360))/2.2);
 }
-
 function checkPlayerDeath(canvas, user, rocks, deg) {
   X = checkX(canvas, user, user.deg+deg);
   Y = checkY(canvas, user, user.deg+deg);
@@ -301,17 +343,16 @@ function checkPlayerDeath(canvas, user, rocks, deg) {
   }
   return true;
 }
-
 function checkUps(canvas, user, powerUps, ind, deg) {
   X = checkX(canvas, user, user.deg+deg);
   Y = checkY(canvas, user, user.deg+deg);
-  if ( ( X > powerUps[ind].x-20 && X < rocks[i].x+20 ) && 
-       ( Y > powerU[i].y-20 && Y < rocks[i].y+20 ) ) {
+  if ( ( X > powerUps[ind].x-20 && X < powerUps[ind].x+20 ) && 
+       ( Y > powerUps[ind].y-20 && Y < powerUps[ind].y+20 ) ) {
+    powerUps[ind] = 0;
     return false;
   }
   return true;
 }
-
 function checkPlayer(canvas, user, rocks) {
   if ( !( checkPlayerDeath(canvas, user, rocks, 0) && 
           checkPlayerDeath(canvas, user, rocks, -135) &&
@@ -319,20 +360,33 @@ function checkPlayer(canvas, user, rocks) {
     return 2; 
   }
   else if ( powerUps[0] != 0 && 
-         !( checkUps(canvas, user, powerUps, 0, 0) &&
-            checkUps(canvas, user, powerUps, 0, -135) &&
-            checkUps(canvas, user, powerUps, 0, 135)) ) {
-    return 3
+    !( checkUps(canvas, user, powerUps, 0, 0) &&
+       checkUps(canvas, user, powerUps, 0, -135) &&
+       checkUps(canvas, user, powerUps, 0, 135)) ) {
+    return 3;
+  }
+  else if ( powerUps[1] != 0 && 
+    !( checkUps(canvas, user, powerUps, 1, 0) &&
+       checkUps(canvas, user, powerUps, 1, -135) &&
+       checkUps(canvas, user, powerUps, 1, 135)) ) {
+  return 4;
+  }
+  else if ( powerUps[2] != 0 && 
+    !( checkUps(canvas, user, powerUps, 2, 0) &&
+       checkUps(canvas, user, powerUps, 2, -135) &&
+       checkUps(canvas, user, powerUps, 2, 135)) ) {
+  return 5;
   }
   return 1;
 }
-
-function reset(bullets, rocks,  user) {
-  bullets = [];
-  rocks = [];
+function reset(user) {
   user.x = 0;
   user.y = 0;
-  user.deg - 270;
+  user.thrust = 0;
+  user.d = 0;
+  user.dd = 0;
+  user.deg = 270;
+  user.ddeg = 0;
 }
 
 user.IMG.src = '../public/assets/game/player.png';
@@ -342,8 +396,12 @@ var rocks = [];
 var powerUps = [0,0,0]; // ,,
 function render() {
   refreshScreen(ctxUser, canvas, window);
+  document.getElementById("score-count").innerHTML = score;
   if (rocks.length == 0) {
     lvl+=1;
+    if (lvl % 5 == 0) {
+      newUp(user, getRandomInt(3));
+    }
     document.getElementById("lvl-count").innerHTML = lvl;
     if (ROCK_SPEED > 1) {
       ROCK_SPEED-=1;
@@ -369,6 +427,7 @@ function render() {
 
   }
   drawUser(ctxUser, user);
+  drawAllUps(ctxUser, powerUps);
   drawAllBullets(ctxUser, bullets);
   drawAllThrusters(ctxUser, user);
   drawAllRocks(ctxUser, rocks, bullets);
@@ -376,11 +435,25 @@ function render() {
     case 1:
       break;
     case 2:
+      bullets = [];
+      rocks = [];
+      lvl = 0;
+      score = 0;
       clearInterval(renderInterval); // pause
-      reset(bullets, rocks, user);
+      reset(user);
       reSize = setInterval(render2, 1000 / 60);
       break;
+    case 3:
+      if(BULLET_SPEED>=1) {BULLET_SPEED-=.5;}
+      break;
+    case 4:
+      if(BULLET_TIMER>=1) {BULLET_TIMER--;}
+      break;
+    case 5:
+      BULLET_SPREAD+= 10;
+      break;
   }
+  console.log(BULLET_TIMER, BULLET_SPEED, BULLET_SPREAD);
 }
 function render2() {
   clearScreen(ctxUser, canvas, window);

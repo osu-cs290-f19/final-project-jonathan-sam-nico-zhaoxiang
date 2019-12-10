@@ -5,9 +5,7 @@ A game by Nico Orint, Samuel Lewis, and Johnathan Macias
 ===========================================================
 ---	TODO	---
 
-GAME:
-	-Asteroid collision with player
-	
+GAME:	
 	-Powerups?
 
 ART:
