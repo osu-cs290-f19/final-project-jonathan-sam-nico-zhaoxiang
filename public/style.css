@@ -5,22 +5,22 @@ body {
     justify-content: center;
 }
 .lightmode {
-    background-color: white;
+    background-color: lightcyan;
 }
 .light{
-    color: white;
+    color: lightgoldenrodyellow;
 }
 div.light2 {
-    background-color: mediumvioletred;
+    background-color: seagreen;
 }
 .darkmode {
-        background-color: darkslategrey;
+        background-color: rgb(17, 9, 9);
 }
 .dark {
-    color: wheat;
+    color: #640000;
 }
 div.dark2 {
-    background-color: rebeccapurple;
+    background-color: #090808;
 }
 .osumode {
     background-color: #ff5229;
@@ -68,6 +68,25 @@ header a {
 	font-weight: 100;
 	margin: 0 0 0 20px;
 	padding-top: 30px;
+}
+div.screenshots-parent{
+    margin-top: 40px;
+    text-align: center;
+}
+div.screenshots{
+    display: inline-block;
+    height: 70px;
+    width: 500px;
+    margin-bottom: 60px;
+}
+header.site-title{
+    margin: 0 0 0 0px;
+    font-size: 50px;
+    padding-top: 0px;
+    height: inherit;
+}
+.spacer{
+    margin-top: 80px;
 }
 
 .upper-portion{
@@ -153,7 +172,6 @@ select{
 
 .small-text{
 	font-size: 70%;
-    color: black;
 }
 
 .game-details{
@@ -280,4 +298,7 @@ select{
 }
 .neutral-color{
     background-color: #373737;
+}
+.space{
+    padding:20px;
 }
