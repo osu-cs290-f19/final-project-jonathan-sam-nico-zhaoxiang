@@ -33,7 +33,17 @@ window.addEventListener("keyup", keysReleased, false);
 
 var timer = 0
 var fire = false;
+var on = true
 function keysPressed(event) {
+  if (event.keyCode == 80) { 
+    if (on == true) {
+      on = false;
+      clearInterval(renderInterval); // pause
+    } else {
+      on = true;
+      renderInterval = setInterval(render, 1000 / 60);
+    }
+  } // left
   if (event.keyCode == 65) { user.ddeg = -TURN_SPEED; } // left
   if (event.keyCode == 68) { user.ddeg = TURN_SPEED; } // right
   if (event.keyCode == 83) { user.dd = -USER_ACC; } // back
@@ -335,6 +345,9 @@ function render() {
   if (rocks.length == 0) {
     lvl+=1;
     document.getElementById("lvl-count").innerHTML = lvl;
+    if (ROCK_SPEED > 1) {
+      ROCK_SPEED-=1;
+    }
     for (i=-5-getRandomInt(lvl); i<0; i++) {
       newRock(user);
     }
