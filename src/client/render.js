@@ -27,7 +27,14 @@ POWER_TIMES_IMG.src = '../public/assets/game/fire_rt_pwr_2.png';
 POWER_SPREAD_IMG = new Image();
 POWER_SPREAD_IMG.src = '../public/assets/game/spread_pwr.png';
 
-POWER_IMGS = [POWER_PLUS_IMG, POWER_TIMES_IMG, POWER_SPREAD_IMG];
+POWER_THRUST_IMG = new Image();
+POWER_THRUST_IMG.src = '../public/assets/game/speed_pwr.png';
+
+POWER_TURN_IMG = new Image();
+POWER_TURN_IMG.src = '../public/assets/game/turn_pwr.png';
+
+
+POWER_IMGS = [POWER_PLUS_IMG, POWER_TIMES_IMG, POWER_SPREAD_IMG, POWER_THRUST_IMG, POWER_TURN_IMG];
 
 BULLET_IMG = new Image();
 BULLET_IMG.src = '../public/assets/game/bullet.png';
@@ -375,6 +382,18 @@ function checkPlayer(canvas, user, rocks) {
        checkUps(canvas, user, powerUps, 2, 135)) ) {
   return 5;
   }
+  else if ( powerUps[3] != 0 && 
+    !( checkUps(canvas, user, powerUps, 3, 0) &&
+       checkUps(canvas, user, powerUps, 3, -135) &&
+       checkUps(canvas, user, powerUps, 3, 135)) ) {
+  return 6;
+  }
+  else if ( powerUps[4] != 0 && 
+    !( checkUps(canvas, user, powerUps, 4, 0) &&
+       checkUps(canvas, user, powerUps, 4, -135) &&
+       checkUps(canvas, user, powerUps, 4, 135)) ) {
+  return 7;
+  }
   return 1;
 }
 function reset(user) {
@@ -391,14 +410,14 @@ user.IMG.src = '../public/assets/game/player.png';
 user.backThrustIMG.src = '../public/assets/game/main_thrust.png';
 var bullets = [];
 var rocks = [];
-var powerUps = [0,0,0]; // ,,
+var powerUps = [0,0,0,0,0];
 function render() {
   refreshScreen(ctxUser, canvas, window);
   document.getElementById("score-count").innerHTML = score;
   if (rocks.length == 0) {
     lvl+=1;
     if (lvl % 5 == 0) {
-      newUp(user, getRandomInt(3));
+      newUp(user, getRandomInt(5));
     }
     document.getElementById("lvl-count").innerHTML = lvl;
     if (ROCK_SPEED > 1) {
@@ -454,6 +473,12 @@ function render() {
       break;
     case 5:
       BULLET_SPREAD+= 10;
+      break;
+    case 6:
+      USER_MAX_SPEED+=2;
+      break;
+    case 7:
+      TURN_SPEED+=1;
       break;
   }
 }

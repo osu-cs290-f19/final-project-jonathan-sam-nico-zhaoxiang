@@ -14,13 +14,13 @@ div.light2 {
     background-color: lightgray;
 }
 .darkmode {
-    background-color: rgb(17, 9, 9);
+    background-color: #310000;
 }
 .dark {
     color: white;
 }
 div.dark2 {
-    background-color: #fe1616;
+    background-color: #171717;
 }
 .osumode {
     background-color: #ff5229;
@@ -104,6 +104,13 @@ header.site-title{
 	border-style: solid;
 	border-color: black;
 }
+#color-mode:hover{
+    cursor: pointer;
+}
+
+    
+
+
 
 select{
 	background-color: darkgrey;
@@ -318,6 +325,12 @@ select{
 	border-style: solid;
 	border-color: black;
 	font-weight: bold;
+}
+.modal-button:hover {
+    background-color: #4e4e4e;
+    box-shadow: 3px 3px 8px black;
+    color: orange;
+    text-decoration: none;
 }
 
 #reviews{
