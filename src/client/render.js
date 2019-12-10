@@ -416,7 +416,7 @@ function render() {
   document.getElementById("score-count").innerHTML = score;
   if (rocks.length == 0) {
     lvl+=1;
-    if (lvl % 5 == 0) {
+    if (lvl % getRandomInt(2)+1 == 0) {
       newUp(user, getRandomInt(5));
     }
     document.getElementById("lvl-count").innerHTML = lvl;
