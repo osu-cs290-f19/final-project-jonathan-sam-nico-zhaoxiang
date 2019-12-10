@@ -6,7 +6,7 @@ A game by Nico Orint, Samuel Lewis, and Johnathan Macias
 ---	TODO	---
 
 GAME:	
-	-Powerups?
+	-Game over Modle
 
 ART:
 	-Space Station
