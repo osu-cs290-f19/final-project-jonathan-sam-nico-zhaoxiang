@@ -1,14 +1,43 @@
-html, body{
-	margin: 0;
-	padding: 0;
-	background-color: #ff5229;
-	font-family: 'Tomorrow', sans-serif;
-	justify-content: center;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Tomorrow', sans-serif;
+    justify-content: center;
+}
+.lightmode {
+    background-color: white;
+}
+.light{
+    color: white;
+}
+div.light2 {
+    background-color: mediumvioletred;
+}
+.darkmode {
+        background-color: darkslategrey;
+}
+.dark {
+    color: wheat;
+}
+div.dark2 {
+    background-color: rebeccapurple;
+}
+.osumode {
+    background-color: #ff5229;
+}
+.osu{
+    color: #ff2f00;
+}
+div.osu2{
+    background-color:grey;
 }
 
-a{
+a, h1, p{
 	text-decoration: none;
-	color: blue;
+    color: inherit;
+}
+#game-info{
+    color: initial;
 }
 	
 a:hover{
@@ -18,7 +47,7 @@ a:hover{
 /*	header	*/
 header{
 	height: 120px;
-	margin-bottom: 15px;
+	/*margin-bottom: 15px;*/
 	background-color: #000;
 	display: flex;
 	align-items: center;
@@ -26,7 +55,6 @@ header{
 }	
 
 header a {
-	color: #ff2f00;
 }
 
 .site-img-container img{
@@ -35,17 +63,14 @@ header a {
 	object-fit: contain;	
 }
 
-.site-title{
+.site-title {
 	font-size: 80px;
 	font-weight: 100;
 	margin: 0 0 0 20px;
 	padding-top: 30px;
 }
 
-/* upper portion */
-
 .upper-portion{
-	background-color: gray;
 	display: flex;
 	flex-direction: row-reverse;
 	align-items: center;
@@ -53,13 +78,10 @@ header a {
 }
 
 .color-mode-container{
-	color: #ff2f00;
 	background-color: black;
 	text-align: center;
-	
 	width: 120px;
 	font-weight: bold;
-
 	padding: 3px;
 	margin: 10px;
 	border-radius: 3px;
@@ -69,7 +91,7 @@ header a {
 }
 
 select{
-	background-color: light-gray;
+	background-color: darkgrey;
 	text-align: center;
 	font-weight: bold;
 }
@@ -86,11 +108,8 @@ select{
 	width: 120px;
 	padding: 10px;
 	margin: 10px;
-	
 	font-weight: bold;
-	color: #ff2f00;
 	background-color: black;
-	
 	border-radius: 3px;
 	border-width: 2px;
 	border-style: solid;
@@ -114,7 +133,6 @@ select{
 /* Bottom part */
 .lower-portion{
 	display: flex;
-	background-color: gray;
 	justify-content: center;
 }
 .game-img-container img{
@@ -135,6 +153,7 @@ select{
 
 .small-text{
 	font-size: 70%;
+    color: black;
 }
 
 .game-details{
@@ -163,10 +182,7 @@ select{
 	padding: 5px;
 	margin: 5px;
 	display: inline-block;
-	
-	color: #ff2f00;
 	background-color: black;
-	
 	border-radius: 3px;
 	border-width: 2px;
 	border-style: solid;
@@ -187,13 +203,12 @@ select{
 }
 .ad-free{
 	display: inline-block;
-	color: #ff2f00;
 	padding: 10px;
 	margin: 10px;
 	text-align: center;
 	font-weight: bold;
 	background-color: black;
-	
+	cursor: pointer;
 	border-radius: 3px;
 	border-width: 2px;
 	border-style: solid;
@@ -243,7 +258,6 @@ select{
     min-width: 350px;
     min-height: 300px;
     margin: 40px auto;
-    background-color: #ff5300;
     border-radius: 15px;
 }
 
@@ -255,4 +269,15 @@ select{
     right: 0;
     z-index: 1010;
     overflow: scroll;
+    cursor: pointer;
+}
+.modal-header{
+    background-color: aliceblue;
+}
+
+#reviews{
+   background-color: black;
+}
+.neutral-color{
+    background-color: #373737;
 }

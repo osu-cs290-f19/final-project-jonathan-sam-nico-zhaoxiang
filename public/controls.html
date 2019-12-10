@@ -7,8 +7,9 @@
     <link rel="icon" type="image/.jpg"
      href="assets/web/951_gaspra.jpg" />
     <title>Asteroids Instructions</title>
+    <script src="test.js" defer></script>
 </head>
-<body>
+<body class="lightmode">
     <header>
         <div class="site-img-container">
             <img src="assets/web/951_Gaspra.jpg" alt="game-logo" />
@@ -16,11 +17,11 @@
         <h1 class="site-title"><a href="#">Asteroids</a></h1>
     </header>
     <div class="upper-portion">
-        <div class="color-mode-container top-right">
+        <div class="color-mode-container top-right ">
             <label for="color-mode">Mode</label>
-            <div class="filter-input-element">
+            <div class="filter-input-element ">
                 <select id="color-mode" name="color-chooser">
-                    <option selected value="">Light Mode</option>
+                    <option>Light Mode</option>
                     <option>Dark Mode</option>
                     <option>OSU Themed</option>
                 </select>
@@ -32,7 +33,7 @@
             <a href="#" class="main-links">High Score</a>
         </div>
     </div>
-    <div class="middle-portion">
+    <div class="middle-portion neutral-color">
         <div class="ad-container top-mid">
             <img src="assets/web/ad.jpg">
         </div>
@@ -73,6 +74,9 @@
             </div>
         </div>
         <div class="power-ups-container">
+            <div id="power-ups-title">
+                Power Ups:
+            </div>
             <div id="power-ups-body">
                 Picking up the power-ups will give you a benefit that will let you survive for longer, an example of a power-up would be the increase in shooting spread
             </div>
