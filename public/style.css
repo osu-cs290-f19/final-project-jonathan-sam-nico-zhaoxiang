@@ -17,10 +17,10 @@ div.light2 {
     background-color: rgb(17, 9, 9);
 }
 .dark {
-    color: #640000;
+    color: white;
 }
 div.dark2 {
-    background-color: #090808;
+    background-color: #fe1616;
 }
 .osumode {
     background-color: #ff5229;
@@ -322,6 +322,9 @@ select{
 
 #reviews{
    background-color: black;
+   color: white;
+   margin-top: 5px;
+   margin-bottom: 5px;
 }
 
 .review{
@@ -396,4 +399,9 @@ h1.over-heading{
 }
 button:hover {
     cursor: pointer;
+}
+.review-title{
+    font-size: 40px;
+    text-align: center;
+    margin: 10px 0px 10px 0px;
 }
