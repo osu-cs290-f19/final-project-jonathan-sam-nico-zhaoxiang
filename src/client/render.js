@@ -453,7 +453,6 @@ function render() {
       BULLET_SPREAD+= 10;
       break;
   }
-  console.log(BULLET_TIMER, BULLET_SPEED, BULLET_SPREAD);
 }
 function render2() {
   clearScreen(ctxUser, canvas, window);
