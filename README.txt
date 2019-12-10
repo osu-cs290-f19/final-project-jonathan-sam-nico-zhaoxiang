@@ -12,7 +12,7 @@ ART:
 	-Space Station panels
 
 HTML:
-	-mostly good
+	-High Scores Page
 CSS:
 	
 Clientside JS:
@@ -23,7 +23,7 @@ Clientside JS:
 	-Total Plays
 
 Server:
-	-Track High Scores
+	-High Score storage
 
 	-Get + store reviews
 
