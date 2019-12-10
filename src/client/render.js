@@ -207,8 +207,8 @@ var thrustTimer = 11;
 var smallTimer = 11;
 function drawAllThrusters(context, user) {
   if (user.ddeg != 0 || user.dd < 0) { smallTimer = 0}
-  if (smallTimer <= 5 && (user.ddeg < 0)) {   drawThruster(context, user, user.deg+45); }
-  if (smallTimer <= 5 && (user.ddeg > 0)) {   drawThruster(context, user, user.deg-45); }
+  if (smallTimer <= 5 && (user.ddeg < 0 || user.dd == -USER_ACC)) {   drawThruster(context, user, user.deg+45); }
+  if (smallTimer <= 5 && (user.ddeg > 0 || user.dd == -USER_ACC)) {   drawThruster(context, user, user.deg-45); }
   smallTimer++;
 }
 function drawThruster(context,user, deg) {
