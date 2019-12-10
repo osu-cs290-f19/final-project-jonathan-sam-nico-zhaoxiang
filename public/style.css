@@ -29,7 +29,7 @@ div.dark2 {
     color: #ff2f00;
 }
 div.osu2{
-    background-color:cadetblue;
+    background-color:grey;
 }
 
 a, h1, p{
@@ -47,7 +47,7 @@ a:hover{
 /*	header	*/
 header{
 	height: 120px;
-	margin-bottom: 15px;
+	/*margin-bottom: 15px;*/
 	background-color: #000;
 	display: flex;
 	align-items: center;
