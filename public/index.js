@@ -65,5 +65,8 @@ function modal_check_inputs(){
 	|| document.getElementById("description-input").value == ""){
 	return false;
 	}
-	    return true;
+	return true;
 }
+
+
+
