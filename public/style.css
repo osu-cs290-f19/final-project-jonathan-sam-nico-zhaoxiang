@@ -362,11 +362,19 @@ select{
     padding:20px;
 }
 .game-over-parent {
-    width: 100%;
-    text-align: center;
-    height: 600px;
+    position: fixed;
+    left: 38%;
+    top: 40%;
 }
 .game-over{
-    position: relative;
+    background: grey;
+    position: fixed;
     display: inline-block;
+    left: 38%;
+    top: 40%;
+}
+
+h1.over-heading{
+    text-align: center;
+
 }
