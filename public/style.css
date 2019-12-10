@@ -29,7 +29,7 @@ div.dark2 {
     color: #ff2f00;
 }
 div.osu2{
-    background-color:grey;
+    background-color: #171717;
 }
 
 a, h1, p{
@@ -94,7 +94,6 @@ header.site-title{
 }
 
 .color-mode-container{
-	background-color: black;
 	text-align: center;
 	width: 120px;
 	font-weight: bold;
@@ -125,7 +124,6 @@ select{
 	padding: 10px;
 	margin: 10px;
 	font-weight: bold;
-	background-color: black;
 	border-radius: 3px;
 	border-width: 2px;
 	border-style: solid;
@@ -196,7 +194,6 @@ select{
 	padding: 5px;
 	margin: 5px;
 	display: inline-block;
-	background-color: black;
 	border-radius: 3px;
 	border-width: 2px;
 	border-style: solid;
@@ -221,7 +218,6 @@ select{
 	margin: 10px;
 	text-align: center;
 	font-weight: bold;
-	background-color: black;
 	cursor: pointer;
 	border-radius: 3px;
 	border-width: 2px;
@@ -368,10 +364,33 @@ select{
 
 /*	Misc */
 .space{
-    padding:20px;
+    padding: 20px;
 }
 
 .img-container{
 	object-fit: contain;
 }
 
+.white-text{
+    color:white;
+}
+.space{
+    padding:20px;
+}
+.game-over-parent {
+    position: fixed;
+    left: 38%;
+    top: 40%;
+}
+.game-over{
+    background: grey;
+    position: fixed;
+    display: inline-block;
+    left: 38%;
+    top: 40%;
+}
+
+h1.over-heading{
+    text-align: center;
+
+}
