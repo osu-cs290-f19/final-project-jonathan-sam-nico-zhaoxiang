@@ -6,18 +6,15 @@ A game by Nico Orint, Samuel Lewis, and Johnathan Macias
 ---	TODO	---
 
 GAME:	
-	-Game over Modle
+	-'Game Over' modal
 
 ART:
-	-Space Station
+	-Space Station panels
 
 HTML:
-	-Templatize everything
+	-mostly good
 CSS:
-	-Dark Mode
-
-	-Light Mode
-
+	
 Clientside JS:
 	-Reviews
 
