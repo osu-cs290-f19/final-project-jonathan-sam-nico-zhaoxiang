@@ -48,22 +48,49 @@ app.get('/', function (req, res, next) {
 
 
 ////////////////////////////////////////////////////////////////////
-app.get('/reviews/add', function (req, res, next) {
-
-
-
-
-
+app.post('/reviews/add', function (req, res, next) {
+	reviewData.push({
+		name: req.body.name,
+		recommend: req.body.recommend,
+		rating: req.body.rating,
+		review: req.body.review
+	  });
+	fs.writeFile(
+		__dirname + '/scores.json',
+		JSON.stringify(reviewData, 2, null),
+		function (err) {
+			if (!err) {
+			res.status(200).send();
+			} else {
+			res.status(500).send("Failed to write data on server side.");
+			}
+		}
+	);
 });
 ////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////
-app.get('/game/add', function (req, res, next) {
+app.post('/game/add', function (req, res, next) {
+    if (req.body && req.body.name && req.body.highscore) {
+		//for (i=0; i<scoreData.length; i++) {
 
-
-
-
-
+		//}
+		scoreData.push({
+		  name: req.body.name,
+		  highscore: req.body.highscore
+		});
+	}
+	fs.writeFile(
+		__dirname + '/scores.json',
+		JSON.stringify(scoreData, 2, null),
+		function (err) {
+			if (!err) {
+			res.status(200).send();
+			} else {
+			res.status(500).send("Failed to write data on server side.");
+			}
+		}
+	);
 });
 ////////////////////////////////////////////////////////////////////
 
