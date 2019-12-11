@@ -346,14 +346,14 @@ canvas {
 	padding: 2px;
 }
 
-#reviews{
+#reviews, .high-scores-container{
    background-color: black;
    color: white;
    margin-top: 5px;
    margin-bottom: 5px;
 }
 
-.review{
+.review, .high-score-container{
 	margin: 10px;
 	padding: 10px;
 	background-color: gray;
@@ -363,7 +363,7 @@ canvas {
 	border-color: black;
 }
 
-.reviewer-name{
+.reviewer-name, high-score-name{
 	text-decoration: underline;
 	font-size: 120%;
 }
