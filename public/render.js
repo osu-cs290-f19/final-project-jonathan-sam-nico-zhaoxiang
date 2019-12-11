@@ -506,7 +506,7 @@ function render2() {
 renderInterval = setInterval(render, 1000 / 60);
 
 
-
+var bodyCheck = 0;
 if(document.title =="Asteroids"){
 
 	//event listener on the accept button
@@ -539,13 +539,17 @@ if(document.title =="Asteroids"){
           highscore: score_number
         });
 
+
         score_message.setRequestHeader('Content-Type', 'application/json');
-        
-        //send it
-        score_message.send(requestBody);
+        if (bodyCheck != requestBody)
+          {
+          //send it
+          score_message.send(requestBody);
+
+          bodyCheck = requestBody
+          }
 
         score_number = 0;
-        startAgain();
       }
     }
 	}
