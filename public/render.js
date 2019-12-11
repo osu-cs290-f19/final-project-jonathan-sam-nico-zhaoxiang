@@ -476,6 +476,8 @@ function render() {
       BULLET_SPEED = 8;
       BULLET_TIMER = 8;
       ROCK_SPEED = 20;
+      TURN_SPEED = 2;
+      USER_MAX_SPEED = 12;
       lvl = 0;
       score = 0;
       clearInterval(renderInterval); // pause
