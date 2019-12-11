@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\public"
+    "\\public",
+    "\\public\\assets\\web",
+    "\\views\\partials"
   ],
-  "SelectedNode": "\\public\\homepage.html",
+  "SelectedNode": "\\README.txt",
   "PreviewInSolutionExplorer": false
 }
