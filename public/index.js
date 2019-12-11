@@ -4,20 +4,21 @@ document.getElementById("modal-close").addEventListener("click",modal_toggle);
 document.getElementById("modal-cancel").addEventListener("click",modal_toggle);
 document.getElementById("add-review-button").addEventListener("click",modal_accept);
 //document.getElementById("modal-close").addEventListener("click",modal_toggle);
-//document.getElementById("review-modal").addEventListener("click",modal_accept);
+//document.getElementById("review-modal").addEventListener("click",modal_toggle);
 
 
 var reviews = [];
 console.log("reviews==",reviews)
 var current_post = document.getElementById("reviews").firstElementChild;
-console.log("first child==",document.getElementById("reviews").firstElementChild);
+console.log("current_post==",document.getElementById("reviews").firstElementChild);
 var size = document.getElementById("reviews").childElementCount;
 console.log("size==",document.getElementById("reviews").childElementCount);
 reviews.push(current_post);
 
-for(var i = 1; i < size; i++){
-	reviews.push(current_post.nextElementSobling);
+for(var i = 0; i < size; i++){
+	reviews.push(current_post.nextElementSibling);
 	current_post = current_post.nextElementSibling;
+	
 }
 
 function modal_toggle(){
@@ -71,6 +72,11 @@ function modal_accept(){
 	console.log("this is name ==",document.getElementById("reviewer-name-input").value);
 	clone.firstElementChild.lastElementChild.firstElementChild.textContent = document.getElementById("description-input").value;
 	console.log("this is descrip",document.getElementById("description-input").value);
+	clone.firstElementChild.firstElementChild.firstElementChild.removeAttribute("alt");
+	//reviews.push(current_post);
+	reviews.push(clone);
+	document.getElementById("reviews").appendChild(clone);
+	modal_toggle();
 }
 
 function modal_check_inputs(){
