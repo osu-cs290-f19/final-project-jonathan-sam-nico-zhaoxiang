@@ -401,7 +401,6 @@ select{
 .game-over{
     background: grey;
     position: fixed;
-    display: inline-block;
     left: 38%;
     top: 40%;
 }
