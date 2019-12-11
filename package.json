@@ -1,0 +1,28 @@
+{
+  "name": "final-project",
+  "version": "1.0.0",
+  "description": "Handlebars templating",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "handlebars views/partials/reviews.handlebars -f public/reviewsTemplate.js",
+    "start": "node server.js",
+    "prestart": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/osu-cs290-f19/final-project-jonathan-sam-nico-zhaoxiang.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/osu-cs290-f19/final-project-jonathan-sam-nico-zhaoxiang/issues"
+  },
+  "homepage": "https://github.com/osu-cs290-f19/final-project-jonathan-sam-nico-zhaoxiang#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "handlebars": "^4.5.3"
+  }
+}
