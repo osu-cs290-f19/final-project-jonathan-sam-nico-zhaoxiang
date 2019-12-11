@@ -332,6 +332,11 @@ select{
     color: orange;
     text-decoration: none;
 }
+#gameover-homepage{
+	background-color: lightgray;
+	font-size: 80%;
+	padding: 2px;
+}
 
 #reviews{
    background-color: black;
