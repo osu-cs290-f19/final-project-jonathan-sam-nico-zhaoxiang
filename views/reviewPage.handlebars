@@ -1,5 +1,3 @@
-﻿<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
     <link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
@@ -49,49 +47,10 @@
             <h2 class="review-title">
                 Reviews
             </h2>
-            <div class="review" data-rating="5" data-recommend="I would recommend this game">
-                <div class="review-contents">
-                    <div class="review-info-container">
-                        <a href="#" class="reviewer-name">Perfecchionist</a>
-                        <div class="review-recommend"> I would recommend!</div>
-                        <div class="review-rating">Rating: 5</div>
-                        <div class="review-description">This game is the best thing that has ever happend to my life! Whoever developed this should get a good grade in a hypothetical assignment</div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="review" data-rating="1" data-recommend="I would not recommend this game">
-                <div class="review-contents">
-                    <div class="review-info-container">
-                        <a href="#" class="reviewer-name">AnnoyingCritic995</a>
-                        <div class="review-recommend"> I would not recommend this game</div>
-                        <div class="review-rating">Rating: 2</div>
-                        <div class="review-description">This game has caused great turmoil in my life. I spent over 20 days playing the beta just last month, causing my wife to take the kids.</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="review" data-rating="5" data-recommend="I would recommend this game">
-                <div class="review-contents">
-                    <div class="review-info-container">
-                        <a href="#" class="reviewer-name">Nico Orint</a>
-                        <div class="review-recommend"> I would recommend!</div>
-                        <div class="review-rating">Rating: 5</div>
-                        <div class="review-description">Eons from now, mankind will look back on this game as its greatest achievement. This shall be a lasting monument to the courage and genius of the human race, and of the audacity of the human spirit.</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="review" data-rating="1" data-recommend="I would not recommend this game">
-                <div class="review-contents">
-                    <div class="review-info-container">
-                        <a href="#" class="reviewer-name">AnnoyingCritic996</a>
-                        <div class="review-recommend"> I would not recommend this game</div>
-                        <div class="review-rating">Rating: 2</div>
-                        <div class="review-description">This game ruined me. It's so addicting, I quit my job so I could have more time to play. It seemed worth it at the time!</div>
-                    </div>
-                </div>
-            </div>
+            {{#each reviewData}}
+                {{> reviews}}
+            {{/each}}
 
         </div>
 
@@ -104,7 +63,7 @@
         <div class="links-and-ad-notice">
             <div class="half-size-for-bottom" id="bottom-links-container">
                 <a href="#" class="bottom-links">Contact Us</a>
-                <a href="#" class="bottom-links">About Us</a>
+                <a href="aboutus.html" class="bottom-links">About Us</a>
                 <a href="#" class="bottom-links">Report Bugs</a>
                 <a href="#" class="bottom-links">Send PayPal</a>
             </div>
