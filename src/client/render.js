@@ -51,6 +51,14 @@ endGame.classList.add("hidden");
 var timer = 0
 var fire = false;
 var on = true
+function startAgain() {
+  console.log("ad")
+  if (on == false) {
+    on = true;
+    endGame.classList.add("hidden");
+    renderInterval = setInterval(render, 1000 / 60);
+  }
+}
 function keysPressed(event) {
   if (event.keyCode == 80) { 
     if (on == true) {
@@ -453,9 +461,10 @@ function render() {
     case 1:
       break;
     case 2:
+      on = false;
       bullets = [];
       rocks = [];
-      powerUps = [];
+      powerUps = [0,0,0,0,0];
       BULLET_SPREAD = 11;
       BULLET_SPEED = 8;
       BULLET_TIMER = 8;
@@ -480,7 +489,7 @@ function render() {
       USER_MAX_SPEED+=2;
       break;
     case 7:
-      TURN_SPEED+=1;
+      TURN_SPEED+=.5;
       break;
   }
 }
