@@ -420,8 +420,8 @@ fake-button {
 }
 .game-over-parent {
     position: fixed;
-    left: 20%;
-    right: 20%;
+    left: 25%;
+    right: 25%;
     top: 40%;
     bottom: 40%;
 }
@@ -431,8 +431,8 @@ fake-button {
     padding: 20px;
     background: grey;
     position: fixed;
-    left: 20%;
-    right: 20%;
+    left: 25%;
+    right: 25%;
     top: 40%;
     bottom: 40%;
 }
@@ -465,4 +465,10 @@ button:hover {
 
 #score-div{
     color:white;
+}
+#modal{
+    text-align: center;
+}
+#input-highscore-div{
+    margin-bottom: 10px;
 }
