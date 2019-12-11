@@ -20,7 +20,7 @@
     </header>
 
     <canvas id="User" position: absolute;></canvas>
-    <script src="../src/client/render.js"></script>
+    <script src="../src/client/render.js" defer></script>
     <!--<script src="../renderDev.js"></script>-->
 
     <div class="game-info">
@@ -41,7 +41,7 @@
             </div>
         </div>
     </div>
-    <div class="hidden game-over" id="modal">
+    <div id="modal" class="hidden game-over" >
         <h1 class="over-heading">Game Over:</h1>
         <button type="button" class="modal-button" id="play-again"> Play Again</button>
         <button type="button" class="modal-button" id="go-homepage">Go to Homepage</button>
