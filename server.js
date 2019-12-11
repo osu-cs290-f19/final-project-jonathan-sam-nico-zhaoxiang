@@ -1,20 +1,16 @@
- var http = require('http');
- var fs = require ('fs');
- var express = require('express');
+var http = require('http');
+var fs = require ('fs');
+var express = require('express');
 
 
- const port = process.env.PORT||3000;
- //console.log('your port is ${port}');
-	//command line PORT=XXXXX node server js, XXXX is the port I want
+const port = process.env.PORT||3000;
 var app = express();
 
 
 app.use(express.static('public'));
 
-app.get(' ', function (req, res, next) {
-	res.status(200).sendFile(__dirname+'/public/homepage.html');
-	});
-app.get('', function (req, res, next) {
+
+app.get('', function (req, res) {
 	res.status(200).sendFile(__dirname+'/public/homepage.html');
 	});
 app.get('/home', function (req, res, next) {
