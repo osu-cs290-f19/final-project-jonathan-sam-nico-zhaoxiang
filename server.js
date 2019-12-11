@@ -16,13 +16,13 @@ var scoreData = require('./scores');
 var reviewData = require('./reviews');
 
 app.get('', function (req, res) {
-	res.status(200).sendFile(__dirname+'/homepage.html');
+	res.status(200).sendFile(__dirname+'/public/homepage.html');
 });
 app.get('/home', function (req, res, next) {
-	res.status(200).sendFile(__dirname+'/homepage.html');
+	res.status(200).sendFile(__dirname+'/public/homepage.html');
 });
 app.get('/homepage', function (req, res, next) {
-	res.status(200).sendFile(__dirname+'/homepage.html');
+	res.status(200).sendFile(__dirname+'/public/homepage.html');
 });
 app.get('/reviews', function (req, res, next) {
 	res.status(200).render('reviewPage', {
@@ -30,7 +30,7 @@ app.get('/reviews', function (req, res, next) {
 	});
 });
 app.get('/controls', function (req, res, next) {
-	res.status(200).sendFile(__dirname+'/controls.html');
+	res.status(200).sendFile(__dirname+'/public/controls.html');
 });
 app.get('/scores', function (req, res, next) {
 	res.status(200).render('scorePage', {
@@ -38,10 +38,10 @@ app.get('/scores', function (req, res, next) {
 	});
 });
 app.get('/game', function (req, res, next) {
-	res.status(200).sendFile(__dirname+'/game.html');
+	res.status(200).sendFile(__dirname+'/public/game.html');
 });
 app.get('/', function (req, res, next) {
-	res.status(200).sendFile(__dirname+'/homepage.html');
+	res.status(200).sendFile(__dirname+'/public/homepage.html');
 });
 
 
