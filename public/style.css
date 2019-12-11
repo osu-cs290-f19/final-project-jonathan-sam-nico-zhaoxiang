@@ -253,7 +253,7 @@ canvas {
     border: 1px solid #c3c3c3;
     margin-left: 15px;
 }
-.game-info{
+div.game-info{
 	left: 30px;
 	top: 150px;
 	position: Fixed;
@@ -327,12 +327,15 @@ canvas {
 	justify-content: center;
 }
 
-.modal-button{
-	border-radius: 3px;
-	border-width: 1px;
-	border-style: solid;
-	border-color: black;
-	font-weight: bold;
+.modal-button {
+    background-color: ButtonFace;
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    font-weight: bold;
+    font: 400 13.3333px Arial;
+    padding: 1px 6px 1px 6px;
 }
 .modal-button:hover {
     background-color: #4e4e4e;
@@ -340,11 +343,20 @@ canvas {
     color: orange;
     text-decoration: none;
 }
+/*
+fake-button {
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    font-weight: bold;
+}*/
+/*
 #gameover-homepage{
 	background-color: lightgray;
 	font-size: 80%;
 	padding: 2px;
-}
+}*/
 
 #reviews{
    background-color: black;
@@ -408,17 +420,21 @@ canvas {
 }
 .game-over-parent {
     position: fixed;
-    left: 38%;
+    left: 20%;
+    right: 20%;
     top: 40%;
+    bottom: 40%;
 }
-.game-over{
-	border-radius: 3px;
-	border: 2px solid #ff2f00;
-	padding: 20px;
+.game-over {
+    border-radius: 3px;
+    border: 2px solid #ff2f00;
+    padding: 20px;
     background: grey;
     position: fixed;
-    left: 38%;
+    left: 20%;
+    right: 20%;
     top: 40%;
+    bottom: 40%;
 }
 
 h1.over-heading{
@@ -441,4 +457,12 @@ button:hover {
     margin-top:10px;
     padding: 20px;
     border-radius: 20px 20px;
+}
+
+#power-ups-div{
+    color: white;
+}
+
+#score-div{
+    color:white;
 }

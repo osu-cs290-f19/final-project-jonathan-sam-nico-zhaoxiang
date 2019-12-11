@@ -25,7 +25,8 @@ for(var i =0; i<divs.length; i++){
 	else{divs[i].classList.add('light');}
 }
 
-colormode.addEventListener('change', function(event){
+if(document.title!="Asteroids"){
+	colormode.addEventListener('change', function(event){
 	console.log(event.target.value);
 	for(var i =0; i<divs.length; i++){
 		divs[i].classList.remove("osu");
@@ -82,6 +83,8 @@ colormode.addEventListener('change', function(event){
 		}
 	}
 });
+}
+
 
 if(document.title =="Reviews"){
 	document.getElementById("modal-close").addEventListener("click",modal_toggle);
