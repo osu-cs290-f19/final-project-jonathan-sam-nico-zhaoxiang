@@ -545,6 +545,7 @@ if(document.title =="Asteroids"){
         score_message.send(requestBody);
 
         score_number = 0;
+        startAgain();
       }
     }
 	}
