@@ -24,6 +24,7 @@ if(document.title != "Asteroids"){
 		else{divs[i].classList.add('light');}
 	}
 
+if(document.title!="Asteroids"){
 	colormode.addEventListener('change', function(event){
 		console.log(event.target.value);
 		for(var i =0; i<divs.length; i++){
@@ -151,7 +152,60 @@ if(document.title =="Reviews"){
 		}
 		return true;
 	}
+	}
 }
 
+/*
+
+function handleModalAcceptClick() {
+    	var reviews_made = document.getElementsByClassName('review-contents');
+		
+		var name_to_send = reviews_made[reviews_made.length-1].getElementsByClassName('reviewer-name')[0].textContent;
+		var description_to_send = reviews_made[reviews_made.length-1].getElementsByClassName('review-description')[0].textContent;
+		var recommend_to_send = reviews_made[reviews_made.length-1].getElementsByClassName('review-recommend')[0].textContent;
+		var rating_to_send = reviews_made[reviews_made.length-1].getAttribute('data-rating');
+		console.log(name_to_send);
+		console.log(description_to_send);
+		console.log(recommend_to_send);
+		console.log(rating_to_send);
+
+  if (!photoURL || !caption) {
+    alert("You must fill in all of the fields!");
+  } else {
+
+    var postRequest = new XMLHttpRequest();
+    var requestURL = '/people/' + getPersonIdFromURL() + '/addPhoto';
+    postRequest.open('POST', requestURL);
+
+    var requestBody = JSON.stringify({
+      url: photoURL,
+      caption: caption
+    });
+
+    console.log("== requestBody:", requestBody);
+    postRequest.setRequestHeader('Content-Type', 'application/json');
+
+    postRequest.addEventListener('load', function (event) {
+      if (event.target.status !== 200) {
+        var responseBody = event.target.response;
+        alert("Error saving photo on server side: " + responseBody);
+      } else {
+        var photoCardTemplate = Handlebars.templates.photoCard;
+        var newPhotoCardHTML = photoCardTemplate({
+          url: photoURL,
+          caption: caption
+        });
+        var photoCardContainer = document.querySelector('.photo-card-container');
+        photoCardContainer.insertAdjacentHTML('beforeend', newPhotoCardHTML);
+      }
+    });
+
+    postRequest.send(requestBody);
+
+    hideModal();
+	*/
 
 
+
+
+///Reviews/add
