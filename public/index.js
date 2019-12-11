@@ -266,7 +266,7 @@ if(document.title =="Asteroids"){
 				}
 			});
 			
-
+			//send it
 			score_message.send(requestBody);
 		}
 	}
