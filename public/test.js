@@ -78,28 +78,4 @@ if(document.title != "Asteroids"){
 		}
 	});
 }
-
-var reviews = document.getElementsByClassName('review');//list of Reviews
-var newreview = reviews[reviews.length-1].cloneNode(true);
-console.log(newreview);
-var username = document.getElementById('reviewer-name-input');
-var description = document.getElementById('description-input');
-
-//console.log(body[0].classList[0]);
-if(document.title =="Reviews"){
-	openbutton.addEventListener('click', function(event){
-		modal_body[0].classList.add('neutral-color');
-		modal.classList.remove('hidden');
-		backdrop.classList.remove('hidden');
-		})
-	review.addEventListener('click', function(event){
-		clear_elements();
-		modal.classList.add('hidden');
-		backdrop.classList.add('hidden');
-
-	})
-	cancel.addEventListener('click', function(event){
-		modal.classList.add('hidden');
-		backdrop.classList.add('hidden');	
-	});
-}
+if(document.title =="Reviews");
