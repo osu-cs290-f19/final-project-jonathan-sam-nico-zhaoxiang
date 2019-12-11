@@ -188,45 +188,6 @@ if(document.title =="Reviews"){
 
 
 
-var reviews_made = document.getElementsByClassName('review-contents');
-		
-var name_to_send = reviews_made[reviews_made.length-1].getElementsByClassName('reviewer-name')[0].textContent;
-var description_to_send = reviews_made[reviews_made.length-1].getElementsByClassName('review-description')[0].textContent;
-var recommend_to_send = reviews_made[reviews_made.length-1].getElementsByClassName('review-recommend')[0].textContent;
-var postRequest = new XMLHttpRequest();
-var requestURL = 'Reviews/add';
-postRequest.open('POST', requestURL);
-
-
-var requestBody = JSON.stringify({
-	name: name_to_send,
-	recommend: recommend_to_send,
-	rating: rate,
-	review: description_to_send
-});
-
-console.log("== requestBody:", requestBody);
-postRequest.setRequestHeader('Content-Type', 'application/json');
-postRequest.addEventListener('load', function (event) {
-	var responseBody = event.target.response;
-	alert("Error saving photo on server side: " + responseBody);
-	var photoCardTemplate = Handlebars.templates.photoCard;
-	var newreviewHTML = photoCardTemplate({
-		name: name_to_send,
-		recommend: recommend_to_send,
-		rating: rate,
-		review: description_to_send
-	});
-});
-
-postRequest.send(requestBody);
-
-hideModal();
- 
-
-}
-
-
 
 
 ///Reviews/add
