@@ -174,12 +174,86 @@ if(document.title =="Reviews"){
 		}
 		return true;
 	}
-	}
-
 }
 
+var reviews_made = document.getElementsByClassName('review-contents');
+		
+var name_to_send = reviews_made[reviews_made.length-1].getElementsByClassName('reviewer-name')[0].textContent;
+var description_to_send = reviews_made[reviews_made.length-1].getElementsByClassName('review-description')[0].textContent;
+var recommend_to_send = reviews_made[reviews_made.length-1].getElementsByClassName('review-recommend')[0].textContent;
+var postRequest = new XMLHttpRequest();
+var requestURL = 'Reviews/add';
+postRequest.open('POST', requestURL);
 
 
+var requestBody = JSON.stringify({
+	name: name_to_send,
+	recommend: recommend_to_send,
+	rating: rate,
+	review: description_to_send
+});
 
+console.log("== requestBody:", requestBody);
+postRequest.setRequestHeader('Content-Type', 'application/json');
+postRequest.addEventListener('load', function (event) {
+	var responseBody = event.target.response;
+	alert("Error saving photo on server side: " + responseBody);
+	var photoCardTemplate = Handlebars.templates.photoCard;
+	var newreviewHTML = photoCardTemplate({
+		name: name_to_send,
+		recommend: recommend_to_send,
+		rating: rate,
+		review: description_to_send
+	});
+});
 
-///Reviews/add
+postRequest.send(requestBody);
+
+hideModal();
+ 
+
+//	***********************		HIGH SCORES		***********************	
+
+//send the player's score to the server
+if(document.title =="Asteroids"){
+
+	//event listener on the accept button
+	document.getElementById("input-username-button").addEventListener("click", sendScore);
+
+	//do this when accept button is clicked
+	function sendScore(){
+
+		//get the inputted name and the score
+		var score_name = document.getElementById('name-input').textContent;
+		var score_number = document.getElementById('score-count').textContent;
+		
+		//if there is no name inputted, do not proceed and tell the user
+		if(!score_name){
+			alert("Please input a name.");
+		}
+		//otherwise, do it
+		else{
+		
+			//create the message object
+			var score_message = new XMLHttpRequest();
+			var requestURL = '/game/add';
+			score_message.open('POST', requestURL);
+			
+			//create a JSON object to send with the request
+			var requestBody = JSON.stringify({
+			  name: score_name,
+			  highscore: score_number
+			});
+
+			score_message.setRequestHeader('Content-Type', 'application/json');
+
+			score_message.addEventListener('load', function (event) {
+			  if (event.target.status !== 200) {
+				var responseBody = event.target.response;
+				alert("Error sending high score: " + responseBody);
+			  	});
+				
+			score_message.send(requestBody);
+		}
+	}
+}

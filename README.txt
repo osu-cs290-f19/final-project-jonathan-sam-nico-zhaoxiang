@@ -4,14 +4,13 @@ A game by Nico Orint, Samuel Lewis, and Johnathan Macias
 
 ===========================================================
 ---	TODO	---
-
+GAME:
+ART:
 HTML:
-	-High Scores Page
+CSS:
 	
 Clientside JS:
-	-Reviews
 
-	-High Scores
 
 Server:
 	-High Score storage
@@ -19,3 +18,5 @@ Server:
 	-Get + store reviews
 
 	-Track total plays
+	
+	-Update gamestate of game objects
