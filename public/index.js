@@ -78,6 +78,7 @@ if(document.title != "Asteroids"){
 		}
 	});
 }
+//	***********************		REVIEWS PAGE	***********************
 
 if(document.title =="Reviews"){
 	document.getElementById("modal-close").addEventListener("click",modal_toggle);
@@ -115,31 +116,32 @@ if(document.title =="Reviews"){
 	
 		var last_post = document.getElementById("reviews").lastElementChild;
 		var clone = last_post.cloneNode(true);
-		var rate = "";
+		
+		var rate;
 			if	(document.getElementById("review-rating-1").checked){rate = "1";}
 			else if (document.getElementById("review-rating-2").checked){rate = "2";}
 			else if (document.getElementById("review-rating-3").checked){rate = "3";}
 			else if (document.getElementById("review-rating-4").checked){rate = "4";}
 			else if (document.getElementById("review-rating-5").checked){rate = "5";}
-		var would = "";
-			if	(document.getElementById("review-rating-would").checked){would = "I would reccomend this game";}
-			else if (document.getElementById("review-rating-would-not").checked){would = "i would not reccomend this game";}
+	
+		var would;
+			if	(document.getElementById("review-rating-would").checked){would = "I would recommend this game";}
+			else if (document.getElementById("review-rating-would-not").checked){would = "I would not recommend this game";}
 
+		//change the data values
 		clone.setAttribute("data-rating",rate);
 		clone.setAttribute("data-recommend",would);
+		
+		//modify the HTML in the new post
 		clone.lastElementChild.lastElementChild.lastElementChild.removeAttribute("alt");
-		clone.firstElement.lastElementChild.firstElementChild.textContent = document.getElementById("").value;
+		clone.getElementsByClassName("review-rating")[0].innerHTML = "Rating: "  + rate;
+		clone.getElementsByClassName("review-recommend")[0].innerHTML = would;
 		clone.firstElementChild.lastElementChild.firstElementChild.textContent = document.getElementById("reviewer-name-input").value;
 		clone.firstElementChild.lastElementChild.lastElementChild.textContent = document.getElementById("description-input").value;
-		//clone.lastElementChild.lastElementChild.lastElementChild.removeAttribute("alt");
+		
 		reviews.push(clone);
 		document.getElementById("reviews").appendChild(clone);
 		modal_toggle();
-
-		console.log("this is rate==",rate);
-		console.log("this is recommend==",would);
-		console.log("this is name ==",document.getElementById("reviewer-name-input").value);
-		console.log("this is descrip==",document.getElementById("description-input").value);
 
 	}
 	function modal_check_inputs(){
