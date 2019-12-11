@@ -22,11 +22,12 @@ div.light2 {
 div.dark2 {
     background-color: #171717;
 }
+
 .osumode {
     background-color: #ff5229;
 }
 .osu{
-    color: #ff2f00;
+    color: darkgrey;
 }
 div.osu2{
     background-color: #171717;
@@ -419,4 +420,13 @@ button:hover {
     font-size: 40px;
     text-align: center;
     margin: 10px 0px 10px 0px;
+}
+.a404{
+    font-size: 100px;
+}
+
+.container-404{
+    margin-top:10px;
+    padding: 20px;
+    border-radius: 20px 20px;
 }
