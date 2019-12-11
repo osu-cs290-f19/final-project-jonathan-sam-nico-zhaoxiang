@@ -1,6 +1,6 @@
 Asteroids
 
-A game by Nico Orint, Samuel Lewis, and Johnathan Macias
+A game by Nico Orint, Samuel Lewis, and Jonathan Macias
 
 ===========================================================
 ---	TODO	---
@@ -15,7 +15,7 @@ Clientside JS:
 Server:
 	-High Score storage
 
-	-Get + store reviews
+	-store reviews
 
 	-Track total plays
 	
