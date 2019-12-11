@@ -48,7 +48,6 @@ window.addEventListener("keydown", keysPressed, false);
 window.addEventListener("keyup", keysReleased, false);
 var endGame = document.getElementById("modal");
 endGame.classList.add("hidden");
-//var goHome  = document.getElementById("modal");
 var timer = 0
 var fire = false;
 var on = true
@@ -490,7 +489,7 @@ function render() {
       USER_MAX_SPEED+=2;
       break;
     case 7:
-      TURN_SPEED+=1;
+      TURN_SPEED+=.5;
       break;
   }
 }
