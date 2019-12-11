@@ -245,7 +245,14 @@ select{
 .bd{
 	
 }
+#game-body {
+    background-color: #3a3a3a;
+}
 
+canvas {
+    border: 1px solid #c3c3c3;
+    margin-left: 15px;
+}
 .game-info{
 	left: 30px;
 	top: 150px;
@@ -332,6 +339,11 @@ select{
     box-shadow: 3px 3px 8px black;
     color: orange;
     text-decoration: none;
+}
+#gameover-homepage{
+	background-color: lightgray;
+	font-size: 80%;
+	padding: 2px;
 }
 
 #reviews{
