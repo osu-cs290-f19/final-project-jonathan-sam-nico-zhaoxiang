@@ -11,95 +11,89 @@ var review = document.getElementById('add-review-button');
 var modal_body = document.getElementsByClassName('modal-body');
 
 
-for(var i =0; i<divs.length; i++){	
-	if(divs[i].classList.contains('upper-portion')||
-			divs[i].classList.contains('lower-portion')||
-			divs[i].classList.contains('game-details-container')||
-			divs[i].classList.contains('modal-header') ||
-			divs[i].classList.contains('modal-body')||
-			divs[i].classList.contains('reviews')||
-			divs[i].classList.contains('container-404')){
-
-		divs[i].classList.add('light2');
-	}
-	else{divs[i].classList.add('light');}
-}
-
-if(document.title!="Asteroids"){
-    	var reviews_made = document.getElementsByClassName('review-contents');
-		reviews_made[reviews_made.length-1].getElementsByClassName('reviewer-name')[0].textContent
-
-	colormode.addEventListener('change', function(event){
-	console.log(event.target.value);
-	for(var i =0; i<divs.length; i++){
-		divs[i].classList.remove("osu");
-		divs[i].classList.remove('dark');
-		divs[i].classList.remove('light');	
-		divs[i].classList.remove("osu2");
-		divs[i].classList.remove('dark2');
-		divs[i].classList.remove('light2');
-		if(event.target.value =="Light Mode"){
-	if(divs[i].classList.contains('upper-portion')||
-			divs[i].classList.contains('lower-portion')||
-			divs[i].classList.contains('game-details-container')||
-			divs[i].classList.contains('modal-header') ||
-			divs[i].classList.contains('modal-body')||
-			divs[i].classList.contains('reviews')||
-			divs[i].classList.contains('container-404')){
+if(document.title != "Asteroids"){
+	for(var i =0; i<divs.length; i++){	
+		if(divs[i].classList.contains('upper-portion')||
+				divs[i].classList.contains('lower-portion')||
+				divs[i].classList.contains('game-details-container')||
+				divs[i].classList.contains('modal-header') ||
+				divs[i].classList.contains('modal-body')||divs[i].classList.contains('reviews')){
 
 			divs[i].classList.add('light2');
-			}
-			else{divs[i].classList.add('light');
-			}
-			if(i==0){
-			body[0].className ="lightmode"}
 		}
-		else if(event.target.value =="Dark Mode"){
-	if(divs[i].classList.contains('upper-portion')||
-			divs[i].classList.contains('lower-portion')||
-			divs[i].classList.contains('game-details-container')||
-			divs[i].classList.contains('modal-header') ||
-			divs[i].classList.contains('modal-body')||
-			divs[i].classList.contains('reviews')||
-			divs[i].classList.contains('container-404')){
-			divs[i].classList.add('dark2');
-			}
-			else{divs[i].classList.add('dark');
-			}
-			if(i==0){
-			body[0].className ="darkmode"}
-		}
-		else{
-	if(divs[i].classList.contains('upper-portion')||
-			divs[i].classList.contains('lower-portion')||
-			divs[i].classList.contains('game-details-container')||
-			divs[i].classList.contains('modal-header') ||
-			divs[i].classList.contains('modal-body')||
-			divs[i].classList.contains('reviews')||
-			divs[i].classList.contains('container-404')){
-			divs[i].classList.add('osu2');
-			}
-			else{divs[i].classList.add('osu');
-			}
-			if(i==0){
-			body[0].className ="osumode"}
-		}
+		else{divs[i].classList.add('light');}
 	}
-});
-}
 
+	colormode.addEventListener('change', function(event){
+		console.log(event.target.value);
+		for(var i =0; i<divs.length; i++){
+			divs[i].classList.remove("osu");
+			divs[i].classList.remove('dark');
+			divs[i].classList.remove('light');	
+			divs[i].classList.remove("osu2");
+			divs[i].classList.remove('dark2');
+			divs[i].classList.remove('light2');
+			if(event.target.value =="Light Mode"){
+				if(divs[i].classList.contains('upper-portion')||
+				divs[i].classList.contains('lower-portion')||
+				divs[i].classList.contains('game-details-container')||
+				divs[i].classList.contains('modal-header') ||
+				divs[i].classList.contains('modal-body')||
+				divs[i].classList.contains('review')){
+				divs[i].classList.add('light2');
+				}
+				else{divs[i].classList.add('light');
+				}
+				if(i==0){
+				body[0].className ="lightmode"}
+			}
+			else if(event.target.value =="Dark Mode"){
+				if(divs[i].classList.contains('upper-portion')||
+				divs[i].classList.contains('lower-portion')||
+				divs[i].classList.contains('game-details-container')||
+				divs[i].classList.contains('modal-header') ||
+				divs[i].classList.contains('modal-body')||
+				divs[i].classList.contains('review')){
+				divs[i].classList.add('dark2');
+				}
+				else{divs[i].classList.add('dark');
+				}
+				if(i==0){
+				body[0].className ="darkmode"}
+			}
+			else{
+				if(divs[i].classList.contains('upper-portion')||
+				divs[i].classList.contains('lower-portion')||
+				divs[i].classList.contains('game-details-container')||
+				divs[i].classList.contains('modal-header') ||
+				divs[i].classList.contains('modal-body')||
+				divs[i].classList.contains('review')){
+				divs[i].classList.add('osu2');
+				}
+				else{divs[i].classList.add('osu');
+				}
+				if(i==0){
+				body[0].className ="osumode"}
+			}
+		}
+	});
+}
+//	***********************		REVIEWS PAGE	***********************
 
 if(document.title =="Reviews"){
 	document.getElementById("modal-close").addEventListener("click",modal_toggle);
 	document.getElementById("modal-cancel").addEventListener("click",modal_toggle);
 	document.getElementById("add-review-button").addEventListener("click",modal_accept);
+	
 	var reviews = [];
-	console.log("reviews==",reviews)
 	var current_post = document.getElementById("reviews").firstElementChild;
-	console.log("current_post==",document.getElementById("reviews").firstElementChild);
 	var size = document.getElementById("reviews").childElementCount;
-	console.log("size==",document.getElementById("reviews").childElementCount);
 	reviews.push(current_post);
+
+	console.log("reviews==",reviews)
+	console.log("current_post==",document.getElementById("reviews").firstElementChild);
+	console.log("size==",document.getElementById("reviews").childElementCount);
+
 	for(var i = 0; i < size; i++){
 		reviews.push(current_post.nextElementSibling);
 		current_post = current_post.nextElementSibling;
@@ -122,41 +116,33 @@ if(document.title =="Reviews"){
 	
 		var last_post = document.getElementById("reviews").lastElementChild;
 		var clone = last_post.cloneNode(true);
-		var rate = "";
-			if(document.getElementById("review-rating-1").checked){
-				rate = "1";
-			}
-			else if(document.getElementById("review-rating-2").checked){
-				rate = "2";
-			}
-			else if(document.getElementById("review-rating-3").checked){
-				rate = "3";
-			}
-			else if(document.getElementById("review-rating-4").checked){
-				rate = "4";
-			}
-			else if(document.getElementById("review-rating-5").checked){
-				rate = "5";
-			}
-		var would = "";
-			if(document.getElementById("review-rating-would").checked){
-				would = "I would reccomend this game";
-			}
-			else if (document.getElementById("review-rating-would-not").checked){
-				would = "i would not reccomend this game";
-			}
+		
+		var rate;
+			if	(document.getElementById("review-rating-1").checked){rate = "1";}
+			else if (document.getElementById("review-rating-2").checked){rate = "2";}
+			else if (document.getElementById("review-rating-3").checked){rate = "3";}
+			else if (document.getElementById("review-rating-4").checked){rate = "4";}
+			else if (document.getElementById("review-rating-5").checked){rate = "5";}
+	
+		var would;
+			if	(document.getElementById("review-rating-would").checked){would = "I would recommend this game";}
+			else if (document.getElementById("review-rating-would-not").checked){would = "I would not recommend this game";}
+
+		//change the data values
 		clone.setAttribute("data-rating",rate);
 		clone.setAttribute("data-recommend",would);
-		console.log("this is rate==",rate);
-		console.log("this is recommend==",would);
+		
+		//modify the HTML in the new post
+		clone.lastElementChild.lastElementChild.lastElementChild.removeAttribute("alt");
+		clone.getElementsByClassName("review-rating")[0].innerHTML = "Rating: "  + rate;
+		clone.getElementsByClassName("review-recommend")[0].innerHTML = would;
 		clone.firstElementChild.lastElementChild.firstElementChild.textContent = document.getElementById("reviewer-name-input").value;
-		console.log("this is name ==",document.getElementById("reviewer-name-input").value);
-		clone.firstElementChild.lastElementChild.firstElementChild.textContent = document.getElementById("description-input").value;
-		console.log("this is descrip",document.getElementById("description-input").value);
-		clone.firstElementChild.firstElementChild.firstElementChild.removeAttribute("alt");
+		clone.firstElementChild.lastElementChild.lastElementChild.textContent = document.getElementById("description-input").value;
+		
 		reviews.push(clone);
 		document.getElementById("reviews").appendChild(clone);
 		modal_toggle();
+
 	}
 	function modal_check_inputs(){
 		if (document.getElementById("reviewer-name-input").value == ""
@@ -165,60 +151,7 @@ if(document.title =="Reviews"){
 		}
 		return true;
 	}
-	}
 }
 
-/*
-
-function handleModalAcceptClick() {
-    	var reviews_made = document.getElementsByClassName('review-contents');
-		
-		var name_to_send = reviews_made[reviews_made.length-1].getElementsByClassName('reviewer-name')[0].textContent;
-		var description_to_send = reviews_made[reviews_made.length-1].getElementsByClassName('review-description')[0].textContent;
-		var recommend_to_send = reviews_made[reviews_made.length-1].getElementsByClassName('review-recommend')[0].textContent;
-		var rating_to_send = reviews_made[reviews_made.length-1].getAttribute('data-rating');
-		console.log(name_to_send);
-		console.log(description_to_send);
-		console.log(recommend_to_send);
-		console.log(rating_to_send);
-
-  if (!photoURL || !caption) {
-    alert("You must fill in all of the fields!");
-  } else {
-
-    var postRequest = new XMLHttpRequest();
-    var requestURL = '/people/' + getPersonIdFromURL() + '/addPhoto';
-    postRequest.open('POST', requestURL);
-
-    var requestBody = JSON.stringify({
-      url: photoURL,
-      caption: caption
-    });
-
-    console.log("== requestBody:", requestBody);
-    postRequest.setRequestHeader('Content-Type', 'application/json');
-
-    postRequest.addEventListener('load', function (event) {
-      if (event.target.status !== 200) {
-        var responseBody = event.target.response;
-        alert("Error saving photo on server side: " + responseBody);
-      } else {
-        var photoCardTemplate = Handlebars.templates.photoCard;
-        var newPhotoCardHTML = photoCardTemplate({
-          url: photoURL,
-          caption: caption
-        });
-        var photoCardContainer = document.querySelector('.photo-card-container');
-        photoCardContainer.insertAdjacentHTML('beforeend', newPhotoCardHTML);
-      }
-    });
-
-    postRequest.send(requestBody);
-
-    hideModal();
-	*/
 
 
-
-
-///Reviews/add
