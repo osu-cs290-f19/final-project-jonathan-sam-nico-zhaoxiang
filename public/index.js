@@ -158,7 +158,6 @@ if(document.title =="Reviews"){
 			rating: rate,
 			review: description_to_send
 		});
-		console.log("== requestBody:", requestBody);
 		postRequest.setRequestHeader('Content-Type', 'application/json');
 		postRequest.addEventListener('load', function (event) {
 		});
