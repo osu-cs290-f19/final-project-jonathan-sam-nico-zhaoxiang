@@ -339,6 +339,11 @@ canvas {
     color: orange;
     text-decoration: none;
 }
+#gameover-homepage{
+	background-color: lightgray;
+	font-size: 80%;
+	padding: 2px;
+}
 
 #reviews{
    background-color: black;
@@ -406,6 +411,9 @@ canvas {
     top: 40%;
 }
 .game-over{
+	border-radius: 3px;
+	border: 2px solid #ff2f00;
+	padding: 20px;
     background: grey;
     position: fixed;
     left: 38%;

@@ -78,22 +78,4 @@ if(document.title != "Asteroids"){
 		}
 	});
 }
-
-
-//console.log(body[0].classList[0]);
-if(document.title =="Reviews"){
-	openbutton.addEventListener('click', function(event){
-		modal_body[0].classList.add('neutral-color');
-		modal.classList.remove('hidden');
-		backdrop.classList.remove('hidden');
-		})
-	cancel.addEventListener('click', function(event){
-		modal.classList.add('hidden');
-		backdrop.classList.add('hidden');
-	})
-	review.addEventListener('click', function(event){
-		modal.classList.add('hidden');
-		backdrop.classList.add('hidden');	
-	});
-}
-
+if(document.title =="Reviews");
