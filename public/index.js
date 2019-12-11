@@ -165,8 +165,8 @@ if(document.title =="Reviews"){
 		postRequest.addEventListener('load', function (event) {
 			var responseBody = event.target.response;
 			alert("Error saving photo on server side: " + responseBody);
-			var photoCardTemplate = Handlebars.templates.photoCard;
-			var newreviewHTML = photoCardTemplate({
+			var reviewTemplate = Handlebars.templates.review;
+			var newreviewHTML = reviewTemplate({
 				name: name_to_send,
 				recommend: recommend_to_send,
 				rating: rate,
