@@ -47,7 +47,7 @@ ROCK_SPEED = 20;
 window.addEventListener("keydown", keysPressed, false);
 window.addEventListener("keyup", keysReleased, false);
 var endGame = document.getElementById("modal");
-//endGame.classList.remove("hidden");
+endGame.classList.add("hidden");
 var timer = 0
 var fire = false;
 var on = true
@@ -465,6 +465,7 @@ function render() {
       clearInterval(renderInterval); // pause
       reset(user);
       reSize = setInterval(render2, 1000 / 60);
+      endGame.classList.remove("hidden");
       break;
     case 3:
       if(BULLET_SPEED>=1) {BULLET_SPEED-=.5;}
