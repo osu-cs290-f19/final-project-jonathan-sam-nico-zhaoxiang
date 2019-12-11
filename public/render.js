@@ -516,6 +516,7 @@ if(document.title =="Asteroids"){
 	function sendScore(){
 
     if(on == false) {
+      console.log('sf');
       //get the inputted name and the score
       var score_name = document.getElementById('name-input').value;
       var score_number = document.getElementById('score-count').textContent;
