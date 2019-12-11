@@ -9,7 +9,7 @@ var modal = document.getElementById('review-modal');
 var cancel = document.getElementById('modal-cancel');
 var review = document.getElementById('add-review-button');
 var modal_body = document.getElementsByClassName('modal-body');
-
+var rate = 1;
 
 if(document.title != "Asteroids"){
 	for(var i =0; i<divs.length; i++){	
@@ -120,11 +120,11 @@ if(document.title =="Reviews"){
 		var clone = last_post.cloneNode(true);
 		
 		var rate;
-			if	(document.getElementById("review-rating-1").checked){rate = "1";}
-			else if (document.getElementById("review-rating-2").checked){rate = "2";}
-			else if (document.getElementById("review-rating-3").checked){rate = "3";}
-			else if (document.getElementById("review-rating-4").checked){rate = "4";}
-			else if (document.getElementById("review-rating-5").checked){rate = "5";}
+		if	(document.getElementById("review-rating-1").checked){rate = "1";}
+		else if (document.getElementById("review-rating-2").checked){rate = "2";}
+		else if (document.getElementById("review-rating-3").checked){rate = "3";}
+		else if (document.getElementById("review-rating-4").checked){rate = "4";}
+		else if (document.getElementById("review-rating-5").checked){rate = "5";}
 	
 		var would;
 			if	(document.getElementById("review-rating-would").checked){would = "I would recommend this game";}
@@ -144,15 +144,11 @@ if(document.title =="Reviews"){
 		reviews.push(clone);
 		document.getElementById("reviews").appendChild(clone);
 		modal_toggle();
-
 		var reviews_made = document.getElementsByClassName('review-contents');
 		var name_to_send = reviews_made[reviews_made.length-1].getElementsByClassName('reviewer-name')[0].textContent;
 		var description_to_send = reviews_made[reviews_made.length-1].getElementsByClassName('review-description')[0].textContent;
 		var recommend_to_send = reviews_made[reviews_made.length-1].getElementsByClassName('review-recommend')[0].textContent;
-		console.log(name_to_send);
-		console.log(description_to_send);
-		console.log(recommend_to_send);
-		console.log(rate);
+
 		var postRequest = new XMLHttpRequest();
 		var requestURL = '/reviews/add';
 		postRequest.open('POST', requestURL);
@@ -167,6 +163,9 @@ if(document.title =="Reviews"){
 		postRequest.addEventListener('load', function (event) {
 		});
 		postRequest.send(requestBody);
+
+
+
 	}
 	function modal_check_inputs(){
 		if (document.getElementById("reviewer-name-input").value == ""
@@ -176,90 +175,4 @@ if(document.title =="Reviews"){
 		return true;
 	}
 
-	var reviews_made = document.getElementsByClassName('review-contents');
-	
-	var name_to_send = reviews_made[reviews_made.length-1].getElementsByClassName('reviewer-name')[0].textContent;
-	var description_to_send = reviews_made[reviews_made.length-1].getElementsByClassName('review-description')[0].textContent;
-	var recommend_to_send = reviews_made[reviews_made.length-1].getElementsByClassName('review-recommend')[0].textContent;
-	var postRequest = new XMLHttpRequest();
-	var requestURL = 'Reviews/add';
-	postRequest.open('POST', requestURL);
-
-
-	var requestBody = JSON.stringify({
-		name: name_to_send,
-		recommend: recommend_to_send,
-		rating: rate,
-		review: description_to_send
-	});
-
-	console.log("== requestBody:", requestBody);
-	postRequest.setRequestHeader('Content-Type', 'application/json');
-	postRequest.addEventListener('load', function (event) {
-		var responseBody = event.target.response;
-		alert("Error saving photo on server side: " + responseBody);
-		var photoCardTemplate = Handlebars.templates.photoCard;
-		var newreviewHTML = photoCardTemplate({
-			name: name_to_send,
-			recommend: recommend_to_send,
-			rating: rate,
-			review: description_to_send
-		});
-	});
-
-	postRequest.send(requestBody);
-
-	hideModal();
-
-}
- 
-//	***********************		HIGH SCORES		***********************	
-
-//send the player's score to the server
-if(document.title =="Asteroids"){
-
-	//event listener on the accept button
-	document.getElementById("input-username-button").addEventListener("click", sendScore);
-
-	//do this when accept button is clicked
-	function sendScore(){
-
-		//get the inputted name and the score
-		var score_name = document.getElementById('name-input').textContent;
-		var score_number = document.getElementById('score-count').textContent;
-		
-		//if there is no name inputted, do not proceed and tell the user
-		if(!score_name){
-			alert("Please input a name.");
-		}
-		//otherwise, do it
-		else{
-		
-			//create the message object
-			var score_message = new XMLHttpRequest();
-			var requestURL = '/game/add';
-			score_message.open('POST', requestURL);
-			
-			//create a JSON object to send with the request
-			var requestBody = JSON.stringify({
-			  name: score_name,
-			  highscore: score_number
-			});
-
-			score_message.setRequestHeader('Content-Type', 'application/json');
-			
-			//wait for the message from the server
-			score_message.addEventListener('load', function (event) {
-			 
-				//if it's not 200, alert
-				if (event.target.status !== 200) {
-					var responseBody = event.target.response;
-					alert("Error sending high score: " + responseBody);
-				}
-			});
-			
-			//send it
-			score_message.send(requestBody);
-		}
-	}
 }

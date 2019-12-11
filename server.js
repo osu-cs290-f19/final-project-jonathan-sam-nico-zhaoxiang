@@ -30,6 +30,7 @@ app.get('/reviews', function (req, res, next) {
 		reviewData: reviewData
 	});
 });
+
 app.get('/controls', function (req, res, next) {
 	res.status(200).sendFile(__dirname+'/public/controls.html');
 });
@@ -76,12 +77,18 @@ app.post('/game/add', function (req, res, next) {
     if (req.body && req.body.name && req.body.highscore) {
 		//for (i=0; i<scoreData.length; i++) {
 
-		//}
-		scoreData.push({
-		  name: req.body.name,
-		  highscore: req.body.highscore
-		});
+		var dataLength = scoreData.length;
+		for (i=0; i<dataLength; i++) {
+			if (parseInt(scoreData[i].highscore) < parseInt(req.body.highscore)) {
+				scoreData.splice(i,0,{
+					name: req.body.name,
+					highscore: req.body.highscore
+				});
+				break;
+			}
+		}
 	}
+
 	fs.writeFile(
 		__dirname + '/scores.json',
 		JSON.stringify(scoreData, 2, null),

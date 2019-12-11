@@ -53,9 +53,8 @@ if (document.getElementById("modal")) {
 
 var timer = 0
 var fire = false;
-var on = true
+var on = true;
 function startAgain() {
-  console.log("ad")
   if (on == false) {
     on = true;
     endGame.classList.add("hidden");
@@ -446,6 +445,7 @@ function render() {
   if ( fire ) {
     if ( timer == BULLET_TIMER ) { timer = 0; }
     if ( timer == 0 ) {
+      if (score > 0) {score--;}
       var degree = Math.abs(user.deg+spread(BULLET_SPREAD));
       x = user.x + Math.round(user.pointX(Math.abs((user.deg)%360))/2.2);
       y = user.y + Math.round(user.pointY(Math.abs((user.deg)%360))/2.2);
@@ -504,3 +504,47 @@ function render2() {
   clearScreen(ctxUser, canvas, window);
 }
 renderInterval = setInterval(render, 1000 / 60);
+
+
+
+if(document.title =="Asteroids"){
+
+	//event listener on the accept button
+	document.getElementById("input-username-button").addEventListener("click", sendScore);
+
+	//do this when accept button is clicked
+	function sendScore(){
+
+    if(on == false) {
+      //get the inputted name and the score
+      var score_name = document.getElementById('name-input').value;
+      var score_number = document.getElementById('score-count').textContent;
+      
+      //if there is no name inputted, do not proceed and tell the user
+      if(!score_name){
+        alert("Please input a name.");
+      }
+      //otherwise, do it
+      else{
+      
+        //create the message object
+        var score_message = new XMLHttpRequest();
+        var requestURL = '/game/add';
+        score_message.open('POST', requestURL);
+        
+        //create a JSON object to send with the request
+        var requestBody = JSON.stringify({
+          name: score_name,
+          highscore: score_number
+        });
+
+        score_message.setRequestHeader('Content-Type', 'application/json');
+        
+        //send it
+        score_message.send(requestBody);
+
+        score_number = 0;
+      }
+    }
+	}
+}
