@@ -1,19 +1,23 @@
 //console.log("modal-close ",document.getElementById('modal-close'));
-var addbutton = document.getElementById('modal-close');
-addbutton.addEventListener('click',modal_accept);
-
+//var addbutton = document.getElementById('modal-close');
+document.getElementById("modal-close").addEventListener("click",modal_toggle);
+document.getElementById("modal-cancel").addEventListener("click",modal_toggle);
+document.getElementById("add-review-button").addEventListener("click",modal_accept);
 //document.getElementById("modal-close").addEventListener("click",modal_toggle);
-document.getElementById("review-modal").addEventListener("click",modal_accept);
+//document.getElementById("review-modal").addEventListener("click",modal_accept);
 
 
-var posts = [];
+var reviews = [];
+console.log("reviews==",reviews)
 var current_post = document.getElementById("reviews").firstElementChild;
+console.log("first child==",document.getElementById("reviews").firstElementChild);
 var size = document.getElementById("reviews").childElementCount;
-posts.push(current_post);
+console.log("size==",document.getElementById("reviews").childElementCount);
+reviews.push(current_post);
 
 for(var i = 1; i < size; i++){
-	posts.push(current_post.nextElementSobling);
-	current_post = current_post,nextElementSibling;
+	reviews.push(current_post.nextElementSobling);
+	current_post = current_post.nextElementSibling;
 }
 
 function modal_toggle(){
@@ -23,15 +27,18 @@ function modal_toggle(){
 	document.getElementById("review-rating-would").checked=true;
 
 	document.getElementById("review-modal").classList.toggle('hidden');
+//	document.getElementById("modal-close").classList.toggle('hidden');
 	document.getElementById("modal-backdrop").classList.toggle('hidden');
 }
 
 function modal_accept(){
+	
 	if(!modal_check_inputs()){
 		alert("please fill in all the entries");
 		return;
 	}
-	var last_post = document.getElementById("posts").lastElementChild;
+	
+	var last_post = document.getElementById("reviews").lastElementChild;
 	var clone = last_post.cloneNode(true);
 	var rate = "";
 		if(document.getElementById("review-rating-1").checked){
@@ -58,6 +65,12 @@ function modal_accept(){
 		}
 	clone.setAttribute("data-rating",rate);
 	clone.setAttribute("data-recommend",would);
+	console.log("this is rate==",rate);
+	console.log("this is recommend==",would);
+	clone.firstElementChild.lastElementChild.firstElementChild.textContent = document.getElementById("reviewer-name-input").value;
+	console.log("this is name ==",document.getElementById("reviewer-name-input").value);
+	clone.firstElementChild.lastElementChild.firstElementChild.textContent = document.getElementById("description-input").value;
+	console.log("this is descrip",document.getElementById("description-input").value);
 }
 
 function modal_check_inputs(){
