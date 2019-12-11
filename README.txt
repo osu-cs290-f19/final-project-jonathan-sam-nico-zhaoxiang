@@ -1,6 +1,6 @@
 Asteroids
 
-A game by Nico Orint, Samuel Lewis, and Johnathan Macias
+A game
 
 ===========================================================
 ---	TODO	---
