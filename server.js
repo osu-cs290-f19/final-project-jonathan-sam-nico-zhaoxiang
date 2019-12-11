@@ -8,6 +8,7 @@ var express = require('express');
 const port = process.env.PORT||3000;
 var app = express();
 
+app.use(bodyParser.json());
 app.use(express.static('public'));
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
@@ -29,6 +30,7 @@ app.get('/reviews', function (req, res, next) {
 		reviewData: reviewData
 	});
 });
+
 app.get('/controls', function (req, res, next) {
 	res.status(200).sendFile(__dirname+'/public/controls.html');
 });
@@ -49,6 +51,7 @@ app.get('/', function (req, res, next) {
 
 ////////////////////////////////////////////////////////////////////
 app.post('/reviews/add', function (req, res, next) {
+	console.log(req.body);
 	reviewData.push({
 		name: req.body.name,
 		recommend: req.body.recommend,
@@ -56,7 +59,7 @@ app.post('/reviews/add', function (req, res, next) {
 		review: req.body.review
 	  });
 	fs.writeFile(
-		__dirname + '/scores.json',
+		__dirname + '/reviews.json',
 		JSON.stringify(reviewData, 2, null),
 		function (err) {
 			if (!err) {
@@ -74,12 +77,18 @@ app.post('/game/add', function (req, res, next) {
     if (req.body && req.body.name && req.body.highscore) {
 		//for (i=0; i<scoreData.length; i++) {
 
-		//}
-		scoreData.push({
-		  name: req.body.name,
-		  highscore: req.body.highscore
-		});
+		var dataLength = scoreData.length;
+		for (i=0; i<dataLength; i++) {
+			if (parseInt(scoreData[i].highscore) < parseInt(req.body.highscore)) {
+				scoreData.splice(i,0,{
+					name: req.body.name,
+					highscore: req.body.highscore
+				});
+				break;
+			}
+		}
 	}
+
 	fs.writeFile(
 		__dirname + '/scores.json',
 		JSON.stringify(scoreData, 2, null),
