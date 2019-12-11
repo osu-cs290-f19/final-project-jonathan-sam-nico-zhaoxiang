@@ -260,7 +260,7 @@ if(document.title =="Asteroids"){
 				var responseBody = event.target.response;
 				alert("Error sending high score: " + responseBody);
 			  	});
-			}
+				
 			score_message.send(requestBody);
 		}
 	}
