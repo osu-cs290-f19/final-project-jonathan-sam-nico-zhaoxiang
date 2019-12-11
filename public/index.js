@@ -153,5 +153,48 @@ if(document.title =="Reviews"){
 	}
 }
 
+//	***********************		HIGH SCORES		***********************	
 
+//send the player's score to the server
+if(document.title =="Asteroids"){
 
+	//event listener on the accept button
+	document.getElementById("input-username-button").addEventListener("click", sendScore);
+
+	//do this when accept button is clicked
+	function sendScore(){
+
+		//get the inputted name and the score
+		var score_name = document.getElementById('name-input').textContent;
+		var score_number = document.getElementById('score-count').textContent;
+		
+		//if there is no name inputted, do not proceed and tell the user
+		if(!score_name){
+			alert("Please input a name.");
+		}
+		//otherwise, do it
+		else{
+		
+			//create the message object
+			var score_message = new XMLHttpRequest();
+			var requestURL = '/game/add';
+			score_message.open('POST', requestURL);
+			
+			//create a JSON object to send with the request
+			var requestBody = JSON.stringify({
+			  name: score_name,
+			  highscore: score_number
+			});
+
+			score_message.setRequestHeader('Content-Type', 'application/json');
+
+			score_message.addEventListener('load', function (event) {
+			  if (event.target.status !== 200) {
+				var responseBody = event.target.response;
+				alert("Error sending high score: " + responseBody);
+			  	});
+			}
+			score_message.send(requestBody);
+		}
+	}
+}
