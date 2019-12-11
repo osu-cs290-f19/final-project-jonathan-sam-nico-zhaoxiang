@@ -1,0 +1,74 @@
+<head>
+    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/.jpg"
+    href="assets/web/951_gaspra.jpg" />
+    <title>High Sccres</title>
+    <script src="test.js" defer></script>
+</head>
+<body class="lightmode">
+    <header>
+        <div class="site-img-container  img-container">
+            <img src="assets/web/951_gaspra.jpg" alt="game-logo"/>
+        </div>
+        <h1 class="site-title"><a href="homepage.html">Asteroids</a></h1>
+    </header>
+
+    <div class="upper-portion ">
+        <div class="color-mode-container top-right ">
+            <label for="color-mode">Mode</label>
+            <div class="filter-input-element ">
+                <select id="color-mode" name="color-chooser">
+                    <option >Light Mode</option>
+                    <option>Dark Mode</option>
+                    <option>OSU Themed</option>
+                </select>
+            </div>
+        </div>
+         <div class="main-links-container left-side" id="main-links-container">
+            <a href="Reviews.html" class="main-links">Leave a Review</a>
+            <a href="controls.html" class="main-links">Instructions</a>
+            <a href="highscores.html" class="main-links">High Score</a>
+        </div>
+	</div>
+	
+	<div class="middle-portion">
+		<div class="high-scores-container">
+			<h2 class="high-scores-title">High Scores</h2>
+			
+			<div class="high-scores-list">
+			
+                {{#each scoreData}}
+                    {{> score}}
+                {{/each}}
+				
+			</div>
+		</div>
+	</div>
+	
+    <div class="lower-portion">
+        <div class="links-and-ad-notice">
+            <div class="half-size-for-bottom" id="bottom-links-container">
+                <a href="#" class="bottom-links">Contact Us</a>
+                <a href="#" class="bottom-links">About Us</a>
+                <a href="#" class="bottom-links">Report Bugs</a>
+                <a href="#" class="bottom-links">Send PayPal</a>
+            </div>
+            <div class="ad-notice">
+                <a href="#" class="ad-free">Go Ad-Free!</a>
+                <div class="ad-paragraph">
+                    <div class="ad-notice-container img-container">
+                        <img src="assets/web/No-Ads.png" />
+                    </div>
+                    <p class="bd small-text">
+                        Get more out of your asteroids experience. Take advantage of this cutting-edge technolofy by no longer limiting yourself to an experience littered with ads. Pay for the premium version of this website today!
+                        <a href="#">Learn more »</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<head>
+    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/.jpg"
+    href="assets/web/951_gaspra.jpg" />
+    <title>Reviews</title>
+    <script src="index.js" defer></script>
+</head>
+<body class="lightmode">
+    <header>
+        <div class="site-img-container img-container">
+            <img src="assets/web/951_Gaspra.jpg" alt="game-logo" />
+        </div>
+        <h1 class="site-title"><a href="homepage.html">Asteroids</a></h1>
+    </header>
+
+    <div class="upper-portion">
+        <div class="color-mode-container top-right ">
+            <label for="color-mode">Mode</label>
+            <div class="filter-input-element ">
+                <select id="color-mode" name="color-chooser">
+                    <option>Light Mode</option>
+                    <option>Dark Mode</option>
+                    <option>OSU Themed</option>
+                </select>
+            </div>
+        </div>
+        <div class="main-links-container left-side" id="main-links-container">
+            <a href="Reviews.html" class="main-links">Leave a Review</a>
+            <a href="controls.html" class="main-links">Instructions</a>
+            <a href="highscores.html" class="main-links">High Score</a>
+        </div>
+    </div>
+
+
+    <div class="middle-portion">
+        <div class="ad-container top-mid">
+            <img src="assets/web/ad.jpg">
+        </div>
+        <div class="modal-header">
+            <h3>Review our Game!</h3>
+            <button type="button" id="modal-close" class="modal-hide-button modal-button">Add a Review</button>
+        </div>
+
+        <div id="reviews">
+            <h2 class="review-title">
+                Reviews
+            </h2>
+
+            {{#each reviewData}}
+                {{> reviews}}
+            {{/each}}
+
+        </div>
+
+        <div class="ad-container bottom-mid">
+            <img src="assets/web/cholula-ad.jfif" />
+        </div>
+    </div>
+
+    <div class="lower-portion">
+        <div class="links-and-ad-notice">
+            <div class="half-size-for-bottom" id="bottom-links-container">
+                <a href="#" class="bottom-links">Contact Us</a>
+                <a href="#" class="bottom-links">About Us</a>
+                <a href="#" class="bottom-links">Report Bugs</a>
+                <a href="#" class="bottom-links">Send PayPal</a>
+            </div>
+            <div class="ad-notice">
+                <a href="#" class="ad-free">Go Ad-Free!</a>
+                <div class="ad-paragraph">
+                    <div class="ad-notice-container img-container">
+                        <img src="assets/web/No-Ads.png" />
+                    </div>
+                    <p class="bd small-text">
+                        Get more out of your asteroids experience. Take advantage of this cutting-edge technolofy by no longer limiting yourself to an experience littered with ads. Pay for the premium version of this website today!
+                        <a href="#">Learn more »</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-backdrop" class="hidden"></div>
+    <div id="review-modal" class="hidden">
+        <div class="modal-body">
+            <div class="review-input-element">
+                <fieldset id="rating-input-fieldset" class="review-fieldset  rating-input">
+                    <legend>Rate this Game (1-5):</legend>
+                    <div>
+                        <input type="radio" name="review-rating-input" id="review-rating-1" value="1">
+                        <label for="review-rating-1">1</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="review-rating-input" id="review-rating-2" value="2">
+                        <label for="review-rating-2">2</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="review-rating-input" id="review-rating-3" value="3">
+                        <label for="review-rating-3">3</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="review-rating-input" id="review-rating-4" value="4">
+                        <label for="review-rating-4">4</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="review-rating-input" id="review-rating-5" value="5">
+                        <label for="review-rating-5">5</label>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="review-input-element text-input">
+                <label for="reviewer-name-input">Reviewer Name:</label>
+                <input type="text" id="reviewer-name-input">
+            </div>
+            <div class="review-input-element text-input">
+                <label for="discription-input">Description:</label>
+                <input type="text" id="description-input">
+            </div>
+            <div class="review-input-element">
+                <fieldset id="Recommend-input-fieldset" class="review-fieldset">
+                    <legend>Would you recommend this game to a friend? </legend>
+                    <div>
+                        <input type="radio" name="review-recommend-input" id="review-rating-would" value="would">
+                        <label for="review-rating-would">I would recommend this game</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="review-recommend-input" id="review-rating-would-not" value="would-not">
+                        <label for="review-rating-would-not">I would not recommend this game</label>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="modal-cancel" class="modal-hide-button action-button modal-button">Cancel</button>
+                <button type="button" id="add-review-button" class="modal-button">Add Review</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

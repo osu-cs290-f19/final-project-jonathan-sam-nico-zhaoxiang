@@ -10,6 +10,9 @@ var cancel = document.getElementById('modal-cancel');
 var review = document.getElementById('add-review-button');
 var modal_body = document.getElementsByClassName('modal-body');
 
+var peopleData = require('./reviews');
+console.log(peopleData);
+
 
 for(var i =0; i<divs.length; i++){	
 	if(divs[i].classList.contains('upper-portion')||
