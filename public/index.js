@@ -143,14 +143,16 @@ if(document.title =="Reviews"){
 		reviews.push(clone);
 		document.getElementById("reviews").appendChild(clone);
 		modal_toggle();
-		console.log(name_to_send);
-		console.log(description_to_send);
-		console.log(recommend_to_send);
-		console.log(rate);
+		///THIS IS WHERE DATA SENDING STARTS - jonathan
+
 		var reviews_made = document.getElementsByClassName('review-contents');
 		var name_to_send = reviews_made[reviews_made.length-1].getElementsByClassName('reviewer-name')[0].textContent;
 		var description_to_send = reviews_made[reviews_made.length-1].getElementsByClassName('review-description')[0].textContent;
 		var recommend_to_send = reviews_made[reviews_made.length-1].getElementsByClassName('review-recommend')[0].textContent;
+		console.log(name_to_send);
+		console.log(description_to_send);
+		console.log(recommend_to_send);
+		console.log(rate);
 		var postRequest = new XMLHttpRequest();
 		var requestURL = 'Reviews/add';
 		postRequest.open('POST', requestURL);
@@ -174,6 +176,7 @@ if(document.title =="Reviews"){
 			});
 		});
 		postRequest.send(requestBody);
+		//THIS IS WHERE THE DATA SENDING ENDS - jonathan
 	}
 	function modal_check_inputs(){
 		if (document.getElementById("reviewer-name-input").value == ""
@@ -183,41 +186,6 @@ if(document.title =="Reviews"){
 		return true;
 	}
 }
-
-var reviews_made = document.getElementsByClassName('review-contents');
-		
-var name_to_send = reviews_made[reviews_made.length-1].getElementsByClassName('reviewer-name')[0].textContent;
-var description_to_send = reviews_made[reviews_made.length-1].getElementsByClassName('review-description')[0].textContent;
-var recommend_to_send = reviews_made[reviews_made.length-1].getElementsByClassName('review-recommend')[0].textContent;
-var postRequest = new XMLHttpRequest();
-var requestURL = 'Reviews/add';
-postRequest.open('POST', requestURL);
-
-
-var requestBody = JSON.stringify({
-	name: name_to_send,
-	recommend: recommend_to_send,
-	rating: rate,
-	review: description_to_send
-});
-
-console.log("== requestBody:", requestBody);
-postRequest.setRequestHeader('Content-Type', 'application/json');
-postRequest.addEventListener('load', function (event) {
-	var responseBody = event.target.response;
-	alert("Error saving photo on server side: " + responseBody);
-	var photoCardTemplate = Handlebars.templates.photoCard;
-	var newreviewHTML = photoCardTemplate({
-		name: name_to_send,
-		recommend: recommend_to_send,
-		rating: rate,
-		review: description_to_send
-	});
-});
-
-postRequest.send(requestBody);
-
-hideModal();
  
 
 //	***********************		HIGH SCORES		***********************	
