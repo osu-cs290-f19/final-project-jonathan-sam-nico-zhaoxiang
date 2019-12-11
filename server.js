@@ -8,6 +8,7 @@ var express = require('express');
 const port = process.env.PORT||3000;
 var app = express();
 
+app.use(bodyParser.json());
 app.use(express.static('public'));
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
@@ -49,6 +50,7 @@ app.get('/', function (req, res, next) {
 
 ////////////////////////////////////////////////////////////////////
 app.post('/reviews/add', function (req, res, next) {
+	console.log(req.body);
 	reviewData.push({
 		name: req.body.name,
 		recommend: req.body.recommend,
@@ -56,7 +58,7 @@ app.post('/reviews/add', function (req, res, next) {
 		review: req.body.review
 	  });
 	fs.writeFile(
-		__dirname + '/scores.json',
+		__dirname + '/reviews.json',
 		JSON.stringify(reviewData, 2, null),
 		function (err) {
 			if (!err) {
